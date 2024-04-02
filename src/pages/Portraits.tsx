@@ -1,7 +1,7 @@
 import React from "react";
 
 const Portraits = () => {
-	return <div>Portrait Pictures</div>;
+	return <section>Portrait Pictures</section>;
 };
 
 export default Portraits;

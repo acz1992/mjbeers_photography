@@ -1,7 +1,7 @@
 import React from "react";
 
 const Landscape = () => {
-	return <div>Landscape Pictures</div>;
+	return <section>Landscape Pictures</section>;
 };
 
 export default Landscape;

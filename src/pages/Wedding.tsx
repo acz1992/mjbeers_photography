@@ -1,7 +1,7 @@
 import React from "react";
 
 const Wedding = () => {
-	return <div>Wedding Pictures</div>;
+	return <section>Wedding Pictures</section>;
 };
 
 export default Wedding;

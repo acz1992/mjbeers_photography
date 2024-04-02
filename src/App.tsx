@@ -7,7 +7,10 @@ function App() {
 		<>
 			<Router>
 				<Sidebar />
-				<AnimRoutes />
+
+				<div className="pages-container">
+					<AnimRoutes />
+				</div>
 			</Router>
 		</>
 	);

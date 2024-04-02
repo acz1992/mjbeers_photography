@@ -2,15 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
-	body {
+@layer base {
+	* {
+		@apply m-0 p-0;
+	}
+
+	html {
+		@apply bg-red-200;
+	}
+
+	/* Global Page Style */
+	.pages-container {
+		@apply flex justify-center;
+	}
+	section {
+		@apply my-5 w-5/6 bg-blue-200;
+	}
+
+	/* body {
 		@apply;
 	}
 	.h1 {
 		@apply;
 	}
 	.section {
-		@apply h-screen w-screen;
+		@apply h-screen w-screen sm:;
 	}
 	.btn {
 		@apply;
@@ -22,5 +38,5 @@
 
 	p {
 		@apply;
-	}
-} */
+	} */
+}
