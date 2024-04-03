@@ -18,7 +18,7 @@
 
 	/* Height defined custom utility */
 	section {
-		@apply w-5/6 /* laptop:h-[90vh] */ mt-5 bg-blue-200;
+		@apply w-5/6 laptop:w-11/12 /* laptop:h-[90vh] */ mt-5 laptop:mb-12 laptop:mt-10 bg-blue-200;
 	}
 
 	/* body {

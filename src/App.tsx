@@ -7,10 +7,10 @@ function App() {
 	return (
 		<>
 			<Router>
-				<div className="laptop:flex">
+				<div className="laptop:grid grid-col-2 grid-cols-[20vw_80vw]">
 					<Header />
 					<Sidebar />
-					<div className="pages-container w-full">
+					<div className="pages-container col-start-2">
 						<AnimRoutes />
 					</div>
 				</div>

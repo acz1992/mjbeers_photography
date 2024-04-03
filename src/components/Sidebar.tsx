@@ -2,14 +2,16 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
 	return (
-		<nav className="hidden laptop:flex">
+		/* w-1/5  */
+		<nav className="hidden w-full h-screen bg-orange-200 laptop:flex">
 			<div>
 				<Link to={"/"}>
 					<img
 						src="src/assets/images/header/logo-nobg.png"
 						alt="Logo"
 					/>
-				</Link>
+				</Link>{" "}
+				*
 			</div>
 		</nav>
 	);
