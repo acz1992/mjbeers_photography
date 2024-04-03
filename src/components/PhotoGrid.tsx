@@ -1,7 +1,7 @@
 import React from "react";
 
 const PhotoGrid = () => {
-	return <div>Photo Grid</div>;
+	return <div className="bg-yellow-200">Photo Grid</div>;
 };
 
 export default PhotoGrid;

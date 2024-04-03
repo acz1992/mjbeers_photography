@@ -1,7 +1,12 @@
 import React from "react";
+import PhotoGrid from "../components/PhotoGrid";
 
 const Home = () => {
-	return <section>Home</section>;
+	return (
+		<section>
+			<PhotoGrid />
+		</section>
+	);
 };
 
 export default Home;

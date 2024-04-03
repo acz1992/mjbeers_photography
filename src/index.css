@@ -4,7 +4,7 @@
 
 @layer base {
 	* {
-		@apply m-0 p-0;
+		@apply m-0 p-0 box-border;
 	}
 
 	html {
@@ -15,8 +15,10 @@
 	.pages-container {
 		@apply flex justify-center;
 	}
+
+	/* Height defined custom utility */
 	section {
-		@apply my-5 w-5/6 bg-blue-200;
+		@apply w-5/6 /* laptop:h-[90vh] */ mt-5 bg-blue-200;
 	}
 
 	/* body {

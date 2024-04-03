@@ -1,7 +1,11 @@
 import React from "react";
 
 const Portraits = () => {
-	return <section>Portrait Pictures</section>;
+	return (
+		<section>
+			<PhotoGrid />
+		</section>
+	);
 };
 
 export default Portraits;
