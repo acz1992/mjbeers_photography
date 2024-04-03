@@ -13,7 +13,6 @@ const menuVariants: Variants = {
 		x: 0,
 		transition: {
 			ease: [0.6, 0.01, -0.05, 0.9],
-            
 		},
 	},
 };
@@ -63,13 +62,13 @@ const Header = () => {
 						<Link to="/about">About</Link>
 					</li>
 					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/portfolio">Landscape</Link>
+						<Link to="/landscape">Landscape</Link>
 					</li>
 					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/contact">Portraits</Link>
+						<Link to="/portraits">Portraits</Link>
 					</li>
 					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/contact">Wedding</Link>
+						<Link to="/wedding">Wedding</Link>
 					</li>
 					<li onClick={() => setOpenMenu(false)}>
 						<Link to="/contact">Contact</Link>
