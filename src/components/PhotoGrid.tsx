@@ -13,8 +13,8 @@ const shuffleArray = (array) => {
 	return array;
 };
 
-const PhotoGrid = () => {
-	const [imageUrls, setImageUrls] = useState<string[]>([]);
+const PhotoGrid = ({ category }) => {
+	const [imageUrls, setImageUrls] = useState([]);
 
 	useEffect(() => {
 		// Load image URLs asynchronously
@@ -22,14 +22,21 @@ const PhotoGrid = () => {
 			const urls = await Promise.all(
 				Object.values(imagePaths).map(async (getImagePath) => {
 					const imagePath = await getImagePath();
-					return imagePath.default;
+					return {
+						url: imagePath.default,
+						category: imagePath.category,
+					}; // Assuming imagePath.category holds the category information
 				})
 			);
+			// Filter images based on the category
+			const filteredUrls = category
+				? urls.filter((img) => img.category === category)
+				: urls;
 			// Shuffle the array of URLs
-			setImageUrls(shuffleArray(urls));
+			setImageUrls(shuffleArray(filteredUrls.map((img) => img.url)));
 		};
 		loadImageUrls();
-	}, []);
+	}, [category]);
 
 	return (
 		<Masonry columnsCount={3} gutter="10px">
