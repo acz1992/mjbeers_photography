@@ -1,11 +1,25 @@
 import { Link } from "react-router-dom";
 import Socials from "./Socials";
 
+type Link = {
+	path: string;
+	label: string;
+};
+
+const links: Link[] = [
+	{ path: "/", label: "Home" },
+	{ path: "/about", label: "About" },
+	{ path: "/landscape", label: "Landscape" },
+	{ path: "/portraits", label: "Portraits" },
+	{ path: "/wedding", label: "Wedding" },
+	{ path: "/contact", label: "Contact" },
+];
+
 const Sidebar = () => {
 	return (
-		/* w-1/5  */
-		<nav className="hidden w-full h-screen bg-orange-200 laptop:flex flex-col justify-between items-center ">
-			<div className="">
+		<nav className="hidden h-screen bg-orange-200 laptop:flex flex-col items-center justify-center">
+			<div className="flex flex-col gap-8">
+				{/* Logo */}
 				<div className="">
 					<Link to={"/"}>
 						<img
@@ -15,31 +29,18 @@ const Sidebar = () => {
 						/>
 					</Link>
 				</div>
-				<div className="flex flex-col gap-6 font-size-[15px] mb-36">
-					<Link to={"/"} className="hover:opacity-50 transition">
-						Home
-					</Link>
-					<Link to={"/about"} className="hover:opacity-50 transition">
-						About
-					</Link>
-					<Link
-						to={"/landscape"}
-						className="hover:opacity-50 transition"
-					>
-						Landscape
-					</Link>
-					<Link
-						to={"/portraits"}
-						className="hover:opacity-50 transition"
-					>
-						Portraits
-					</Link>
-					<Link
-						to={"/contact"}
-						className="  hover:opacity-50 transition"
-					>
-						Contact
-					</Link>
+
+				<div className="flex flex-col gap-5 font-size-[15px] mb-28 ">
+					{links.map((link, index) => (
+						<Link
+							key={index}
+							to={link.path}
+							className="group transition duration-300"
+						>
+							{link.label}
+							<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
+						</Link>
+					))}
 				</div>
 				<Socials />
 			</div>
