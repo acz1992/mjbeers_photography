@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 import Masonry from "react-responsive-masonry";
 
-// NOTE: Complicated state is due to meta.glob importation of many pictures
-
 const imagePaths = import.meta.glob(
 	"../assets/images/gallery/**/*.{jpg,jpeg,png,gif}"
 );
+
+const shuffleArray = (array) => {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array;
+};
 
 const PhotoGrid = () => {
 	const [imageUrls, setImageUrls] = useState<string[]>([]);
@@ -19,7 +25,8 @@ const PhotoGrid = () => {
 					return imagePath.default;
 				})
 			);
-			setImageUrls(urls);
+			// Shuffle the array of URLs
+			setImageUrls(shuffleArray(urls));
 		};
 		loadImageUrls();
 	}, []);
@@ -31,7 +38,7 @@ const PhotoGrid = () => {
 					key={index}
 					alt={`Image ${index}`}
 					style={{ width: "100%", display: "block" }}
-					src={url} // Ensure that the src attribute receives a string value
+					src={url}
 				/>
 			))}
 		</Masonry>
