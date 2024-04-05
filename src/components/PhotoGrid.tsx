@@ -4,7 +4,7 @@ import Masonry from "react-responsive-masonry";
 // NOTE: Complicated state is due to meta.glob importation of many pictures
 
 const imagePaths = import.meta.glob(
-	"../assets/images/wedding/**/*.{jpg,jpeg,png,gif}"
+	"../assets/images/gallery/**/*.{jpg,jpeg,png,gif}"
 );
 
 const PhotoGrid = () => {
