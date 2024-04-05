@@ -1,5 +1,51 @@
+import { Link } from "react-router-dom";
+import Socials from "./Socials";
+
+type Link = {
+	path: string;
+	label: string;
+};
+
+const links: Link[] = [
+	{ path: "/", label: "Home" },
+	{ path: "/about", label: "About" },
+	{ path: "/landscape", label: "Landscape" },
+	{ path: "/portraits", label: "Portraits" },
+	{ path: "/wedding", label: "Wedding" },
+	{ path: "/contact", label: "Contact" },
+];
+
 const Sidebar = () => {
-	return <div className="bg-orange-200">Sidebar</div>;
+	return (
+		<nav className="hidden h-screen bg-orange-200 laptop:flex flex-col items-center justify-center">
+			<div className="flex flex-col gap-8">
+				{/* Logo */}
+				<div className="">
+					<Link to={"/"}>
+						<img
+							src="src/assets/images/header/logo-nobg.png"
+							alt="Logo"
+							className="h-40"
+						/>
+					</Link>
+				</div>
+
+				<div className="flex flex-col gap-5 font-size-[15px] mb-28 ">
+					{links.map((link, index) => (
+						<Link
+							key={index}
+							to={link.path}
+							className="group transition duration-300"
+						>
+							{link.label}
+							<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
+						</Link>
+					))}
+				</div>
+				<Socials />
+			</div>
+		</nav>
+	);
 };
 
 export default Sidebar;
