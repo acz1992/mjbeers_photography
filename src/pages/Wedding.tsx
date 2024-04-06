@@ -4,7 +4,7 @@ import PhotoGallery from "../components/PhotoGallery";
 const Wedding = () => {
 	return (
 		<section>
-			<PhotoGallery />
+			<PhotoGallery category="wedding" />
 		</section>
 	);
 };

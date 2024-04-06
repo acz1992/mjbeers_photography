@@ -1,4 +1,4 @@
-import Masonry from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
 
@@ -10,6 +10,10 @@ interface Image {
 	imageAddress: string;
 }
 
+interface PhotoGalleryProps {
+	category?: string;
+}
+
 const shuffleArray = (array: Image[]) => {
 	const newArray = [...array];
 	for (let i = newArray.length - 1; i > 0; i--) {
@@ -19,20 +23,29 @@ const shuffleArray = (array: Image[]) => {
 	return newArray;
 };
 
-const PhotoGallery = () => {
-	const images = shuffleArray(getPhotos());
+const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
+	let images = getPhotos();
+
+	// Filter images based on category if provided
+	if (category) {
+		images = images.filter((image) => image.category === category);
+	}
+
+	images = shuffleArray(images);
 
 	return (
-		<Masonry>
-			{images.map((image, i) => (
-				<img
-					key={i}
-					src={getImageUrl(image.imageAddress)}
-					style={{ width: "100%", display: "block" }}
-					alt={image.title}
-				/>
-			))}
-		</Masonry>
+		<ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+			<Masonry>
+				{images.map((image, i) => (
+					<img
+						key={i}
+						src={getImageUrl(image.imageAddress)}
+						style={{ width: "100%", display: "block" }}
+						alt={image.title}
+					/>
+				))}
+			</Masonry>
+		</ResponsiveMasonry>
 	);
 };
 
