@@ -20,8 +20,16 @@ const menuVariants: Variants = {
 const Header = () => {
 	const [openMenu, setOpenMenu] = useState(false);
 
+	const handleCloseMenu = () => {
+		setOpenMenu(false);
+	};
+
 	return (
-		<header className="bg-orange-200 laptop:hidden ">
+		<header
+			className="bg-orange-200 laptop:hidden"
+			style={{ overflowX: "hidden" }}
+		>
+			{/* Your existing header content */}
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
 				{/* Logo */}
 				<Link to={"/"}>
@@ -40,41 +48,43 @@ const Header = () => {
 			</div>
 
 			{/* Menu */}
-			<motion.div
-				variants={menuVariants}
-				initial="hidden"
-				animate={openMenu ? "show" : ""}
-				className="bg-orange-200 shadow-2xl w-5/6 absolute top-0 right-0 max-w-xs h-screen z-20"
-			>
-				{/* Icon */}
-				<div
-					onClick={() => setOpenMenu(false)}
-					className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer"
+			{openMenu && (
+				<motion.div
+					variants={menuVariants}
+					initial="hidden"
+					animate="show"
+					className="bg-orange-200 shadow-2xl w-5/6 absolute top-0 right-0 max-w-xs h-screen z-20"
 				>
-					<IoMdClose />
-				</div>
-				{/* Menu List */}
-				<ul className="h-full flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl ">
-					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/">Home</Link>
-					</li>
-					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/about">About</Link>
-					</li>
-					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/landscape">Landscape</Link>
-					</li>
-					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/portraits">Portraits</Link>
-					</li>
-					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/wedding">Wedding</Link>
-					</li>
-					<li onClick={() => setOpenMenu(false)}>
-						<Link to="/contact">Contact</Link>
-					</li>
-				</ul>
-			</motion.div>
+					{/* Icon */}
+					<div
+						onClick={handleCloseMenu}
+						className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer"
+					>
+						<IoMdClose />
+					</div>
+					{/* Menu List */}
+					<ul className="h-full flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl ">
+						<li onClick={handleCloseMenu}>
+							<Link to="/">Home</Link>
+						</li>
+						<li onClick={handleCloseMenu}>
+							<Link to="/about">About</Link>
+						</li>
+						<li onClick={handleCloseMenu}>
+							<Link to="/landscape">Landscape</Link>
+						</li>
+						<li onClick={handleCloseMenu}>
+							<Link to="/portraits">Portraits</Link>
+						</li>
+						<li onClick={handleCloseMenu}>
+							<Link to="/wedding">Wedding</Link>
+						</li>
+						<li onClick={handleCloseMenu}>
+							<Link to="/contact">Contact</Link>
+						</li>
+					</ul>
+				</motion.div>
+			)}
 		</header>
 	);
 };

@@ -17,7 +17,7 @@ const links: Link[] = [
 
 const Sidebar = () => {
 	return (
-		<nav className="hidden h-screen bg-orange-200 laptop:flex flex-col items-center justify-center">
+		<nav className="hidden laptop:fixed pl-10 h-screen bg-orange-200 laptop:flex flex-col items-center justify-center">
 			<div className="flex flex-col gap-8">
 				{/* Logo */}
 				<div className="">
@@ -25,7 +25,7 @@ const Sidebar = () => {
 						<img
 							src="src/assets/images/header/logo-nobg.png"
 							alt="Logo"
-							className="h-40"
+							className="h-40 "
 						/>
 					</Link>
 				</div>
