@@ -20,8 +20,8 @@ const socialLinks: SocialLink[] = [
 
 const Socials = () => {
 	return (
-		<div className="hidden laptop:flex ">
-			<ul className="flex w-full gap-8 ">
+		<div className="hidden laptop:flex border-t-2 border-black pt-4 mr-9">
+			<ul className="flex w-full gap-8  ">
 				{socialLinks.map((link, index) => (
 					<li key={index}>
 						<a

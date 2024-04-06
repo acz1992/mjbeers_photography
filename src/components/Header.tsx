@@ -36,7 +36,7 @@ const Header = () => {
 					<img
 						src="src/assets/images/header/logo-nobg.png"
 						alt="Logo"
-						className="h-14"
+						className="h-20"
 					/>
 				</Link>
 				<div
