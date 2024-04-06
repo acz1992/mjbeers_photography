@@ -34,18 +34,22 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	images = shuffleArray(images);
 
 	return (
-		<ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-			<Masonry>
-				{images.map((image, i) => (
-					<img
-						key={i}
-						src={getImageUrl(image.imageAddress)}
-						style={{ width: "100%", display: "block" }}
-						alt={image.title}
-					/>
-				))}
-			</Masonry>
-		</ResponsiveMasonry>
+		<div className="px-6 laptop:px-16">
+			<ResponsiveMasonry
+				columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+			>
+				<Masonry>
+					{images.map((image, i) => (
+						<img
+							key={i}
+							src={getImageUrl(image.imageAddress)}
+							style={{ width: "100%", display: "block" }}
+							alt={image.title}
+						/>
+					))}
+				</Masonry>
+			</ResponsiveMasonry>
+		</div>
 	);
 };
 
