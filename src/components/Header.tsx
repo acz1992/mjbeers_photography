@@ -26,7 +26,7 @@ const Header = () => {
 
 	return (
 		<header
-			className="bg-orange-200 laptop:hidden "
+			className="bg-orange-200 laptop:hidden fixed w-full"
 			style={{ overflowX: "hidden" }}
 		>
 			{/* Your existing header content */}
