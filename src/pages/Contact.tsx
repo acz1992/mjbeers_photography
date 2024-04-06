@@ -1,7 +1,11 @@
-import React from "react";
+import ContactForm from "../components/ContactForm";
 
 const Contact = () => {
-	return <section>Contact</section>;
+	return (
+		<section>
+			<ContactForm />
+		</section>
+	);
 };
 
 export default Contact;

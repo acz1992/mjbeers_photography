@@ -21,6 +21,11 @@
 		@apply w-full /* laptop:w-11/12 laptop:h-[90vh] */ mt-28 laptop:mb-12 laptop:mt-10 bg-blue-200;
 	}
 
+	/* Custom CSS */
+	.transition-delay-150 {
+		transition-delay: 150ms;
+	}
+
 	/* li >  {
 		@apply h-[20px];
 	}
