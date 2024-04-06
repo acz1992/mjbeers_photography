@@ -3,7 +3,7 @@ import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
 
 interface Image {
-	id: string;
+	id: `${string}-${string}-${string}-${string}-${string}`;
 	title: string;
 	description: string;
 	category: string;
