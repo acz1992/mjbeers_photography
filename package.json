@@ -20,7 +20,7 @@
     "require-context": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.4",
+    "@types/node": "^20.12.5",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@types/react-responsive-masonry": "^2.1.3",

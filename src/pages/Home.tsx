@@ -1,10 +1,12 @@
 import React from "react";
-import PhotoGrid from "../components/PhotoGrid";
+/* import PhotoGrid from "../components/PhotoGrid"; */
+import PhotoGallery from "../components/PhotoGallery";
 
 const Home = () => {
 	return (
 		<section>
-			<PhotoGrid />
+			{/* <PhotoGrid /> */}
+			<PhotoGallery />
 		</section>
 	);
 };
