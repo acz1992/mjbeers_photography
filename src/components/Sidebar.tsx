@@ -30,7 +30,7 @@ const Sidebar = () => {
 					</Link>
 				</div>
 
-				<div className="flex flex-col gap-5 font-size-[15px] mb-28 ">
+				<div className="flex flex-col gap-5 font-size-[15px] mb-10 mr-9 ">
 					{links.map((link, index) => (
 						<Link
 							key={index}

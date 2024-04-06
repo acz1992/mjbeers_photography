@@ -2,27 +2,24 @@
 
 ### Initial Dimensions for outter components
 
-1. PhotoGrid
+1. Contact Form
 
-    - Look at Dimensions within outter Page Component
+-   Take Form from Blickfang_Blumen
 
-    - Try new method:
-      https://www.youtube.com/watch?v=7EFZIe_Cpv8&ab_channel=tapaScriptbyTapasAdhikary
-      This way, can define categories for pictures in data file
-    - then would need to figure out a way to conditionally render pictures based on which page
+2. About Page
+
+-   Have a look at ideas
+
+3. Animations
+
+-   Photo Grid - maybe dissolve in effect
+-   About and Contact Pahe
+-   Page Transitions - Take from Blickfang
 
 ### PhotoGrid
 
--   Install React-responsive-masonry
--   Configure to Mitch's Photos
--   Include Lightbox. Research it
+-   Include Lightbox. Research it. Idea is user can click on one phot and it trigegrs an overlay (lightbox) with image title and description maybe.
 
--   Figure out filtering
+### Future
 
-### Sidebar
-
-1. Figure out row height for sidebar
-2. Figure out why height doesnt take up entire space
-
-3. Font-size for Nav Links
-4. Work out how to style social icons
+-   Look at incorporating Sanity into it, so Mitch can upload photos when he wants

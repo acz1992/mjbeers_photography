@@ -36,9 +36,9 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	return (
 		<div className="px-6 laptop:px-16">
 			<ResponsiveMasonry
-				columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+				columnsCountBreakPoints={{ 350: 1, 640: 2, 1024: 3 }}
 			>
-				<Masonry>
+				<Masonry gutter={"10px"}>
 					{images.map((image, i) => (
 						<img
 							key={i}
