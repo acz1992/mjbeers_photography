@@ -26,7 +26,7 @@ const Header = () => {
 
 	return (
 		<header
-			className="bg-orange-200 laptop:hidden"
+			className="bg-orange-200 laptop:hidden "
 			style={{ overflowX: "hidden" }}
 		>
 			{/* Your existing header content */}
@@ -53,7 +53,7 @@ const Header = () => {
 					variants={menuVariants}
 					initial="hidden"
 					animate="show"
-					className="bg-orange-200 shadow-2xl w-5/6 absolute top-0 right-0 max-w-xs h-screen z-20"
+					className="bg-orange-200 shadow-2xl w-5/6 fixed top-0 right-0 max-w-xs h-screen z-20"
 				>
 					{/* Icon */}
 					<div
