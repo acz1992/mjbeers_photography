@@ -27,7 +27,7 @@ export default {
 			colors: {
 				primary: "black",
 				secondary: "",
-				background: "white",
+				background: "#f0f8ff",
 			},
 		},
 		plugins: [],

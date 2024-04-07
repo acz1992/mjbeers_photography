@@ -46,7 +46,7 @@ const ContactForm = () => {
 						name="name"
 						value={formState.name}
 						onChange={handleChange}
-						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 "
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background"
 						required
 						placeholder="Your name"
 					/>
@@ -58,7 +58,7 @@ const ContactForm = () => {
 						name="email"
 						value={formState.email}
 						onChange={handleChange}
-						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 "
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background"
 						required
 						placeholder="Your email address"
 					/>
@@ -71,7 +71,7 @@ const ContactForm = () => {
 					name="subject"
 					value={formState.subject}
 					onChange={handleChange}
-					className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 "
+					className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background"
 					required
 					placeholder="Subject"
 				/>
@@ -83,7 +83,7 @@ const ContactForm = () => {
 					value={formState.message}
 					onChange={handleChange}
 					rows={4}
-					className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 resize-none"
+					className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 resize-none bg-background"
 					required
 					placeholder="What Can I do for you?"
 				></textarea>
