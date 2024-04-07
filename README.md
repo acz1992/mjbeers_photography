@@ -27,3 +27,5 @@ Testing
 ### Future
 
 -   Look at incorporating Sanity into it, so Mitch can upload photos when he wants
+
+-   Any issues from Photo gallery overflow - use darkened overlay for each photo (like Instagram)

@@ -7,13 +7,16 @@ type SocialLink = {
 };
 
 const socialLinks: SocialLink[] = [
-	{ href: "https://www.facebook.com/", icon: <ImFacebook size={20} /> },
+	{
+		href: "https://www.facebook.com/mitchelljohnbeers",
+		icon: <ImFacebook size={20} />,
+	},
 	{
 		href: "https://www.instagram.com/mjbeers_photography/",
 		icon: <ImInstagram size={20} />,
 	},
 	{
-		href: "linkedin.com/in/mitchell-beers-a66b12102",
+		href: "https://linkedin.com/in/mitchell-beers-a66b12102",
 		icon: <ImLinkedin size={20} />,
 	},
 ];

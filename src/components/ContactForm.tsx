@@ -34,33 +34,45 @@ const ContactForm = () => {
 		<form
 			onSubmit={handleSubmit}
 			/* mx-12 tablet:mx-auto  */
-			className="w-full px-4 md:max-w-xl lg:max-w-3xl xl:max-w-4xl"
+			className="w-full md:max-w-xl lg:max-w-3xl xl:max-w-4xl "
 		>
-			<div className="laptop:flex gap-6 ">
-				<div className="mb-4">
+			<div className="tablet:flex justify-between gap-6 ">
+				<div className="mb-4 w-full">
 					<input
 						type="text"
 						id="name"
 						name="name"
 						value={formState.name}
 						onChange={handleChange}
-						className="w-full px-3 py-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 focus:w-[105%] focus:h-[105%]"
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 "
 						required
 						placeholder="Your name"
 					/>
 				</div>
-				<div className="mb-4">
+				<div className="mb-4 w-full">
 					<input
 						type="email"
 						id="email"
 						name="email"
 						value={formState.email}
 						onChange={handleChange}
-						className="w-full px-3 py-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 focus:w-[105%] focus:h-[105%]"
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 "
 						required
 						placeholder="Your email address"
 					/>
 				</div>
+			</div>
+			<div className="mb-4">
+				<input
+					type="text"
+					id="subject"
+					name="subject"
+					value={formState.name}
+					onChange={handleChange}
+					className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 "
+					required
+					placeholder="Subject"
+				/>
 			</div>
 			<div className="mb-6">
 				<textarea
@@ -69,7 +81,7 @@ const ContactForm = () => {
 					value={formState.message}
 					onChange={handleChange}
 					rows={4}
-					className="w-full px-3 py-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 focus:w-[105%] focus:h-[105%] resize-none"
+					className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 resize-none"
 					required
 					placeholder="What Can I do for you?"
 				></textarea>

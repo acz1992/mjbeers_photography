@@ -27,7 +27,7 @@ const Header = () => {
 	return (
 		<header className="bg-orange-200 laptop:hidden fixed w-full top-0 z-50">
 			{" "}
-			{/* Added z-50 */}
+			{/* Added z-50above to make header work */}
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
 				<Link to={"/"}>
 					<img
