@@ -4,11 +4,6 @@ Testing
 
 ### Initial Dimensions for outter components
 
-1. About Page
-
--   Mike Kelley one
-    OR just three paragraphs left side, pic of mitch right
-
 2. Animations
 
 -   Photo Grid - maybe dissolve in effect
@@ -24,6 +19,8 @@ Testing
 -   Look at incorporating Sanity into it, so Mitch can upload photos when he wants
 
 -   Any issues from Photo gallery overflow - use darkened overlay for each photo (like Instagram)
+
+-   Add testimonial page and include reviews from Facebook
 
 Tools
 
