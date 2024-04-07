@@ -38,7 +38,7 @@ const ContactForm = () => {
 			/* mx-12 tablet:mx-auto  */
 			className="w-full md:max-w-xl lg:max-w-3xl xl:max-w-4xl "
 		>
-			<div className="tablet:flex justify-between gap-6 ">
+			<div className="tablet:flex justify-between gap-6 no-scrollbar  ">
 				<div className="mb-4 w-full">
 					<input
 						type="text"
@@ -46,7 +46,7 @@ const ContactForm = () => {
 						name="name"
 						value={formState.name}
 						onChange={handleChange}
-						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background"
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 "
 						required
 						placeholder="Your name"
 					/>
