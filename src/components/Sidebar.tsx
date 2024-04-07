@@ -17,7 +17,8 @@ const links: Link[] = [
 
 const Sidebar = () => {
 	return (
-		<nav className="hidden laptop:fixed pl-10 h-screen bg-orange-200 laptop:flex flex-col items-center justify-center">
+		/* bg-orange-200 */
+		<nav className="hidden laptop:fixed pl-10 h-screen  laptop:flex flex-col items-center justify-center">
 			<div className="flex flex-col gap-8">
 				{/* Logo */}
 				<div className="">

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 interface FormState {
 	name: string;
 	email: string;
+	subject: string;
 	message: string;
 }
 
@@ -10,6 +11,7 @@ const ContactForm = () => {
 	const [formState, setFormState] = useState<FormState>({
 		name: "",
 		email: "",
+		subject: "",
 		message: "",
 	});
 
@@ -67,7 +69,7 @@ const ContactForm = () => {
 					type="text"
 					id="subject"
 					name="subject"
-					value={formState.name}
+					value={formState.subject}
 					onChange={handleChange}
 					className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 "
 					required

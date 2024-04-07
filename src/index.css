@@ -7,9 +7,9 @@
 		@apply m-0 p-0 box-border;
 	}
 
-	html {
+	/* html {
 		@apply bg-red-200;
-	}
+	} */
 
 	/* Global Page Style */
 	.pages-container {
@@ -18,7 +18,7 @@
 
 	/* Height defined custom utility */
 	section {
-		@apply w-full /* laptop:w-11/12 laptop:h-[90vh] */ mt-28 laptop:mb-12 laptop:mt-10 bg-blue-200;
+		@apply w-full /* laptop:w-11/12 laptop:h-[90vh] */ mt-28 laptop:mb-12 laptop:mt-10 /* bg-blue-200 */;
 	}
 
 	/* Custom CSS */
