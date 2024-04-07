@@ -6,11 +6,13 @@ Testing
 
 1. Contact Form
 
--   Take Form from Blickfang_Blumen
+-   Add typed effect from portfolio page
+    "Like what you see? Get in Contact now
 
 2. About Page
 
--   Have a look at ideas
+-   Mike Kelley one
+    OR just three paragraphs left side, pic of mitch right
 
 3. Animations
 
@@ -25,3 +27,5 @@ Testing
 ### Future
 
 -   Look at incorporating Sanity into it, so Mitch can upload photos when he wants
+
+-   Any issues from Photo gallery overflow - use darkened overlay for each photo (like Instagram)

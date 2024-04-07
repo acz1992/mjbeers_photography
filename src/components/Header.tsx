@@ -25,13 +25,10 @@ const Header = () => {
 	};
 
 	return (
-		<header
-			className="bg-orange-200 laptop:hidden"
-			style={{ overflowX: "hidden" }}
-		>
-			{/* Your existing header content */}
+		<header className="bg-orange-200 laptop:hidden fixed w-full top-0 z-50">
+			{" "}
+			{/* Added z-50above to make header work */}
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
-				{/* Logo */}
 				<Link to={"/"}>
 					<img
 						src="src/assets/images/header/logo-nobg.png"
@@ -46,14 +43,13 @@ const Header = () => {
 					<CgMenuRight />
 				</div>
 			</div>
-
 			{/* Menu */}
 			{openMenu && (
 				<motion.div
 					variants={menuVariants}
 					initial="hidden"
 					animate="show"
-					className="bg-orange-200 shadow-2xl w-5/6 absolute top-0 right-0 max-w-xs h-screen z-20"
+					className="bg-orange-200 shadow-2xl w-5/6 fixed top-0 right-0 max-w-xs h-screen z-50"
 				>
 					{/* Icon */}
 					<div

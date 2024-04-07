@@ -24,11 +24,11 @@ export default {
 			// { ... }
 		},
 		extend: {
-			/* colors: {
-				primary: "",
+			colors: {
+				primary: "black",
 				secondary: "",
-				background: "",
-    }, */
+				background: "white",
+			},
 		},
 		plugins: [],
 	},
