@@ -33,9 +33,10 @@ const ContactForm = () => {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="max-w-md mx-12 tablet:mx-auto px-4 md:max-w-xl lg:max-w-3xl xl:max-w-4xl"
+			/* mx-12 tablet:mx-auto  */
+			className="w-full px-4 md:max-w-xl lg:max-w-3xl xl:max-w-4xl"
 		>
-			<div className="laptop:flex gap-6">
+			<div className="laptop:flex gap-6 ">
 				<div className="mb-4">
 					<input
 						type="text"
