@@ -57,8 +57,12 @@ const About = () => {
 						their heart.
 					</p>
 				</div>
-				<div className="pic-container tablet:w-1/2 items-center flex justify-start tablet:justify-center mt-10 tablet:mt-0">
-					<img src={Mitch} className="object-cover w-[50%]" alt="" />
+				<div className="pic-container tablet:w-1/2 items-center flex justify-start tablet:justify-center mt-10 tablet:mt-0  overflow-hidden">
+					<img
+						src={Mitch}
+						className="object-cover w-[50%] hover:scale-110 transition-all duration-500"
+						alt=""
+					/>
 				</div>
 			</div>
 		</section>
