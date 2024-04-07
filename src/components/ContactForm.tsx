@@ -38,7 +38,7 @@ const ContactForm = () => {
 			/* mx-12 tablet:mx-auto  */
 			className="w-full md:max-w-xl lg:max-w-3xl xl:max-w-4xl "
 		>
-			<div className="tablet:flex justify-between gap-6 no-scrollbar  ">
+			<div className="tablet:flex justify-between gap-6">
 				<div className="mb-4 w-full">
 					<input
 						type="text"
@@ -88,12 +88,14 @@ const ContactForm = () => {
 					placeholder="What Can I do for you?"
 				></textarea>
 			</div>
-			<button
-				type="submit"
-				className="w-full px-4 py-2 text-sm font-medium text-white bg-primary  outline-none hover:bg-slate-700 transition delay-150 duration-300 ease-in-out focus:bg-slate-400"
-			>
-				Submit
-			</button>
+			<div className="flex w-full justify-center">
+				<button
+					type="submit"
+					className="w-1/3 justify-self-center px-4 py-2 text-sm font-medium text-white bg-primary outline-none hover:bg-slate-700 transition delay-150 duration-300 ease-in-out focus:bg-slate-400"
+				>
+					Submit
+				</button>
+			</div>
 		</form>
 	);
 };

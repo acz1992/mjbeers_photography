@@ -20,7 +20,7 @@ const Contact = () => {
 			className="mx-10 laptop:mx-20 laptop:my-[14%] flex flex-col 
 		laptop:justify-items-center items-center laptop:grid grid-cols-2 grid-cols-[50%_40%]"
 		>
-			<div className=" flex flex-col laptop:mb-0">
+			<div className="my-4 flex flex-col laptop:mb-0">
 				<TypeAnimation
 					sequence={[
 						"Like the look of my work?",
