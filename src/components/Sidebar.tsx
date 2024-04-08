@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Socials from "./Socials";
+import Logo from "../assets/images/header/logo-nobg.png";
 
 type Link = {
 	path: string;
@@ -22,11 +23,7 @@ const Sidebar = () => {
 				{/* Logo */}
 				<div className="">
 					<Link to={"/"}>
-						<img
-							src="src/assets/images/header/logo-nobg.png"
-							alt="Logo"
-							className="h-40 "
-						/>
+						<img src={Logo} alt="Logo" className="h-40 " />
 					</Link>
 				</div>
 
