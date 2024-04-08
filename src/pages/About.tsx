@@ -1,9 +1,17 @@
 import Mitch from "../assets/images/about/Mitch-resized.jpg";
 import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import { transition1 } from "../utils/transitions";
 
 const About = () => {
 	return (
-		<section className="laptop:flex mx-10 laptop:mx-20 laptop:my-[14%] flex flex-col items-center">
+		<motion.section
+			initial={{ opacity: 0, y: "100%" }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: "100%" }}
+			transition={transition1}
+			className="laptop:flex mx-10 laptop:mx-20 laptop:my-[14%] desktop:my-[4%] flex flex-col items-center"
+		>
 			<div className="about-container flex space-between items-center flex-col tablet:flex-row">
 				<div className="text-container flex flex-col justify-center gap-6 w-full laptop:w-1/2 aspect-square text-sm ">
 					<TypeAnimation
@@ -26,7 +34,13 @@ const About = () => {
 						}}
 						repeat={Infinity}
 					/>
-					<p className="ml-[20%] text-justify">
+					<motion.p
+						initial={{ opacity: 0, x: "100%" }}
+						animate={{ opacity: 1, x: 0 }}
+						exit={{ opacity: 0, x: "100%" }}
+						transition={transition1}
+						className="ml-[20%] text-justify"
+					>
 						My journey into photography began unexpectedly during my
 						university days, where a forensics module introduced me
 						to the captivating challenge of capturing images in
@@ -35,8 +49,14 @@ const About = () => {
 						Armed with a modest Nikon Coolpix B500 and an Adobe
 						Lightroom subscription, I found myself immersed in the
 						enchanting world of landscape photography.
-					</p>
-					<p className="text-center mr-[20%] text-justify">
+					</motion.p>
+					<motion.p
+						initial={{ opacity: 0, x: "-100%" }}
+						animate={{ opacity: 1, x: 0 }}
+						exit={{ opacity: 0, x: "-100%" }}
+						transition={transition1}
+						className="text-center mr-[20%] text-justify"
+					>
 						As my enthusiasm grew, so did my skills. Through
 						relentless self-teaching and tireless practice, I delved
 						into the intricacies of landscape photography, devouring
@@ -45,8 +65,14 @@ const About = () => {
 						wildlife to portraits, weddings, and events, each
 						offering new challenges and opportunities for creative
 						expression.
-					</p>
-					<p className="ml-[20%] text-justify">
+					</motion.p>
+					<motion.p
+						initial={{ opacity: 0, x: "100%" }}
+						animate={{ opacity: 1, x: 0 }}
+						exit={{ opacity: 0, x: "100%" }}
+						transition={transition1}
+						className="ml-[20%] text-justify"
+					>
 						Today, my passion for photography continues to evolve
 						and thrive. Sharing my work through albums and offering
 						photography services for weddings and events allows me
@@ -55,7 +81,7 @@ const About = () => {
 						power of pursuing one's passions, reminding me of the
 						boundless possibilities that await when one follows
 						their heart.
-					</p>
+					</motion.p>
 				</div>
 				<div className="pic-container tablet:w-1/2 items-center flex justify-start tablet:justify-center mt-10 tablet:mt-0  overflow-hidden">
 					<img
@@ -65,7 +91,7 @@ const About = () => {
 					/>
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
