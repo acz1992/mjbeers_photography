@@ -4,6 +4,7 @@ import { CgMenuRight } from "react-icons/cg";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Variants } from "../utils/CustomProps";
+import Logo from "/logo-nobg.png";
 
 const menuVariants: Variants = {
 	hidden: {
@@ -30,11 +31,7 @@ const Header = () => {
 			{/* Added z-50above to make header work */}
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
 				<Link to={"/"}>
-					<img
-						src="src/assets/images/header/logo-nobg.png"
-						alt="Logo"
-						className="h-20"
-					/>
+					<img src={Logo} alt="Logo" className="h-20" />
 				</Link>
 				<div
 					onClick={() => setOpenMenu(true)}
