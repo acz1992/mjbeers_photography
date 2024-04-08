@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Socials from "./Socials";
-import Logo from "/logo-nobg.png";
+import Logo from "/logo/mjblogo.png";
 
 type Link = {
 	path: string;

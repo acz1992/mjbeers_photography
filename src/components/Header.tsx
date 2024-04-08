@@ -4,7 +4,7 @@ import { CgMenuRight } from "react-icons/cg";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Variants } from "../utils/CustomProps";
-import Logo from "/logo-nobg.png";
+import Logo from "/logo/mjblogo.png";
 
 const menuVariants: Variants = {
 	hidden: {
