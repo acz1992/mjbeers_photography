@@ -1,41 +1,48 @@
-## To do:
+# MJBeers Photography Portfolio
 
-Testing
+## About
 
-### Initial Dimensions for outter components
+### Description
 
-2. Animations
+Mitch is a skilled, self-taught photographer who, alongside his day job, extends his photographical services to events and personalized photoshoots, as well as selling prints of his work.
 
--   Photo Grid - maybe dissolve in effect
--   About and Contact Pahe
--   Page Transitions - Take from Blickfang
+### The Mission
 
-### PhotoGrid
+The client needed a minimalist-style website where he could showcase his work and give an overview of his background and artistic journey - offering a brief yet engaging overview of his background and evolution as a photographer. Furthermore, potential customers needed a customers by which they could reach out and make inquiries.
 
--   Include Lightbox. Research it. Idea is user can click on one phot and it trigegrs an overlay (lightbox) with image title and description maybe.
+## Tech / Resources
 
-### Future
+### Stack
 
--   Look at incorporating Sanity into it, so Mitch can upload photos when he wants
+This company website project uses React, TypeScript, and Vite to enhance development efficiency, ensure code reliability with strong typing, and optimize performance for a seamless user experience.
 
--   Any issues from Photo gallery overflow - use darkened overlay for each photo (like Instagram)
+### Resources
 
--   Add testimonial page and include reviews from Facebook
+-   **React-Icons**: Enhances user interface design by providing a wide range of customizable icons for React applications.
 
-Tools
+-   **Framer Motion**: Elevates user experience with fluid animations and interactive elements, simplifying complex motion design for React projects.
 
--   react-type-animation
--   react-responsive masonry
+-   **React Router Dom**: Enables seamless navigation and routing within React applications, facilitating the creation of multi-page web experiences.
 
-Features:
+-   **React Type Animations**: Adds engaging typewriter-style animations to text elements, enhancing the visual appeal and interactivity of web interfaces.
 
--   shuffleArray function - Photos render order randomised each time page reloads
+-   **React Responsive Masonry**: Enables the creation of responsive grid layouts (like Pinterest) for presenting content, ensuring optimal display across various screen sizes and devices.
 
-Challenges:
-clipping overflow on scale hover effect of image tiles
+## Future
 
--   Since Image tile dimensions vary:
+### To do
 
-1. getUniqueDimensions function asynchronously retrieves the unique dimensions (width and height) of each image using the Image constructor and onload event handler.
-2. The useEffect hook is used to call fetchDimensions function once after the component mounts, ensuring that the unique dimensions are fetched and set before rendering.
-3. The component renders the images within a ResponsiveMasonry component, ensuring responsiveness, and calculates the aspect ratio of each image container based on its unique dimensions to maintain proper image rendering.
+-   Email.js - Hook up form to Blickfang email
+    Testimonials - Add a review page using reviews from Facebook
+    Lightbox - Include a lightbox for PhotoGallery component
+    CMS - Incorporate CMS into project so client can upload pictures when needed
+
+## Challenges
+
+### **Clipping Image-overflow on hover scale-effect**:
+
+    - Image tile dimensions vary, and so this could not be applied
+    - **Solution**:
+        1. getUniqueDimensions function asynchronously retrieves the unique dimensions (width and height) of each image using the Image constructor and onload event handler.
+        2. The useEffect hook is used to call fetchDimensions function once after the component mounts, ensuring that the unique dimensions are fetched and set before rendering.
+        3. The component renders the images within a ResponsiveMasonry component, ensuring responsiveness, and calculates the aspect ratio of each image container based on its unique dimensions to maintain proper image rendering.
