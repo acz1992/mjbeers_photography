@@ -1,13 +1,19 @@
 import { TypeAnimation } from "react-type-animation";
 import ContactForm from "../components/ContactForm";
+import { motion } from "framer-motion";
+import { transition1 } from "../utils/transitions";
 
 const Contact = () => {
 	return (
-		<section
-			className="mx-10 laptop:mx-20 laptop:my-[14%] flex flex-col 
+		<motion.section
+			initial={{ opacity: 0, y: "-100%" }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: "-100%" }}
+			transition={transition1}
+			className="mx-10 laptop:mx-20 laptop:my-[20%] desktop:my-[14%] flex flex-col 
 		laptop:justify-items-center items-center laptop:grid grid-cols-2 grid-cols-[50%_40%]"
 		>
-			<div className="my-4 flex flex-col laptop:mb-0">
+			<div>
 				<TypeAnimation
 					sequence={[
 						"Like the look of my work?",
@@ -32,7 +38,7 @@ const Contact = () => {
 			</div>
 
 			<ContactForm />
-		</section>
+		</motion.section>
 	);
 };
 

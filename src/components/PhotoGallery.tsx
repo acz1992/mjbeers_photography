@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
-import { motion } from "framer-motion";
-import { transition1 } from "../utils/transitions";
 
 interface Image {
 	id: `${string}-${string}-${string}-${string}-${string}`;
@@ -95,11 +93,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 								}%`,
 							}}
 						>
-							<motion.img
-								initial={{ opacity: 0, x: "100%" }}
-								animate={{ opacity: 1, x: 0 }}
-								exit={{ opacity: 0, x: "100%" }}
-								transition={transition1}
+							<img
 								src={getImageUrl(image.imageAddress)}
 								alt={image.title}
 								className="absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"

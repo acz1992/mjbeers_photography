@@ -15,7 +15,7 @@ export default {
 			// => @media (min-width: 1024px)
 			// { ... }
 
-			desktop: "1280px",
+			desktop: "1490px",
 			// => @media (min-width: 1280px)
 			// { ... }
 
