@@ -1,19 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
 import ContactForm from "../components/ContactForm";
 
-/* const Contact = () => {
-	return (
-		<section className="h-screen flex flex-col justify-center ">
-			<div className="flex justify-around items-center">
-				<div className="bg-white w-1/3 aspect-square"></div>
-				<div className="flex justify-center items-center">
-					<ContactForm />
-				</div>
-			</div>
-		</section>
-	);
-}; */
-
 const Contact = () => {
 	return (
 		<section
@@ -24,7 +11,7 @@ const Contact = () => {
 				<TypeAnimation
 					sequence={[
 						"Like the look of my work?",
-						1000, // wait 1s before replacing "Mice" with "Hamsters"
+						1000,
 						"Have an event coming up?",
 						1000,
 						"Or just want nice pictures?",

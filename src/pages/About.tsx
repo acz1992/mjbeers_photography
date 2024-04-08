@@ -1,9 +1,17 @@
 import Mitch from "../assets/images/about/Mitch-resized.jpg";
 import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import { transition1 } from "../utils/transitions";
 
 const About = () => {
 	return (
-		<section className="laptop:flex mx-10 laptop:mx-20 laptop:my-[14%] flex flex-col items-center">
+		<motion.section
+			initial={{ opacity: 0, y: "100%" }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: "100%" }}
+			transition={transition1}
+			className="laptop:flex mx-10 laptop:mx-20 laptop:my-[14%] flex flex-col items-center"
+		>
 			<div className="about-container flex space-between items-center flex-col tablet:flex-row">
 				<div className="text-container flex flex-col justify-center gap-6 w-full laptop:w-1/2 aspect-square text-sm ">
 					<TypeAnimation
@@ -65,7 +73,7 @@ const About = () => {
 					/>
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
