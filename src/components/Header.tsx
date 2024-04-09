@@ -30,7 +30,7 @@ const Header = () => {
 			{" "}
 			{/* Added z-50above to make header work */}
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
-				<Link to={"/"} className="max-w-[200px]">
+				<Link to={"/"} className="max-w-[60px]">
 					<img src={Logo} alt="" />
 				</Link>
 				{/* <Link to={"/"}>
