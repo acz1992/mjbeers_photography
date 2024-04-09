@@ -30,9 +30,10 @@ const Header = () => {
 			{" "}
 			{/* Added z-50above to make header work */}
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
-				<Link to={"/"}>
+				{/* <Link to={"/"}>
 					<img src={Logo} alt="Logo" className="h-20" />
-				</Link>
+				</Link> */}
+				<img src={Logo} alt="Logo" className="h-20" />
 				<div
 					onClick={() => setOpenMenu(true)}
 					className="text-3xl cursor-pointer"
