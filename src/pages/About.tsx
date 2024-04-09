@@ -25,12 +25,22 @@ const About = () => {
 							"And a budding photographer",
 							1000,
 						]}
-						className="bg-opacity-0 mb-2"
+						className=""
 						wrapper="span"
 						speed={50}
 						style={{
-							fontSize: "2rem",
-							display: "inline-block",
+							fontSize: "1.2rem", // Default font size
+							...(window.innerWidth > 600 && {
+								fontSize: "1.8rem",
+							}), // Media query for viewport width 600px - 1200px
+							...(window.innerWidth > 1200 && {
+								fontSize: "2rem",
+							}), // Media query for viewport width > 1200px
+							width: "100%",
+
+							display: "block",
+							wordBreak: "break-all",
+							fontWeight: "600",
 						}}
 						repeat={Infinity}
 					/>
