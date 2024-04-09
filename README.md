@@ -41,8 +41,9 @@ This company website project uses React, TypeScript, and Vite to enhance develop
 ## Challenges
 
 ### **Clipping Image-overflow on hover scale-effect**:
-Image tile dimensions vary, and so this could not be applied
-**Solution**:
+- Image tile dimensions vary, and so this could not be applied
+  
+-**Solution**:
      1. getUniqueDimensions function asynchronously retrieves the unique dimensions (width and height) of each image using the Image constructor and onload event handler.
      2. The useEffect hook is used to call fetchDimensions function once after the component mounts, ensuring that the unique dimensions are fetched and set before rendering.
      3. The component renders the images within a ResponsiveMasonry component, ensuring responsiveness, and calculates the aspect ratio of each image container based on its unique dimensions to maintain proper image rendering.
