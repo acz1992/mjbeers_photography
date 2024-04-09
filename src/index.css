@@ -18,7 +18,7 @@
 
 	/* Height defined custom utility */
 	section {
-		@apply w-full mt-[30%] tablet:mt-[20%] laptop:my-0  /* laptop:w-11/12 laptop:h-[90vh] */  /* bg-blue-200 */;
+		@apply w-full mt-[28%] tablet:mt-[20%] laptop:my-0  /* laptop:w-11/12 laptop:h-[90vh] */  /* bg-blue-200 */;
 	}
 
 	/* Custom CSS */
