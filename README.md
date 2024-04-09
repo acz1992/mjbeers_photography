@@ -32,10 +32,11 @@ This company website project uses React, TypeScript, and Vite to enhance develop
 
 ### To do
 
--   Email.js - Hook up form to Blickfang email
-    Testimonials - Add a review page using reviews from Facebook
-    Lightbox - Include a lightbox for PhotoGallery component
-    CMS - Incorporate CMS into project so client can upload pictures when needed
+-   **Email.js**: Hook up form to Blickfang email
+-   **Testimonials**: Add a review page using reviews from Facebook
+-   **Lightbox**: Include a lightbox for PhotoGallery component
+-   **Content Management System**: Integrate project with Sanity.io so client can upload pictures when needed
+-   **Add Dark Mode**: Add toggle component that switches Website to darker colours, for environemntal purposes.
 
 ## Challenges
 
