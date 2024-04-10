@@ -42,7 +42,7 @@ const Header = () => {
 				</Link>
 				<div
 					onClick={() => setOpenMenu(true)}
-					className="text-3xl cursor-pointer"
+					className="text-3xl cursor-pointer transition-transform transform-gpu hover:scale-110"
 				>
 					<CgMenuRight />
 				</div>
@@ -56,15 +56,21 @@ const Header = () => {
 				>
 					<div
 						onClick={handleCloseMenu}
-						className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer"
+						className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer transition-transform transform-gpu hover:scale-110"
 					>
 						<IoMdClose />
 					</div>
 					<ul className="h-full flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl">
 						{menuItems.map((item, index) => (
-							<li key={index} onClick={handleCloseMenu}>
-								<Link to={item.link}>{item.title}</Link>
-							</li>
+							<Link
+								key={index}
+								onClick={handleCloseMenu}
+								to={item.link}
+								className="group transition duration-300 relative"
+							>
+								{item.title}
+								<span className="block absolute left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-500"></span>
+							</Link>
 						))}
 					</ul>
 				</motion.div>
