@@ -18,6 +18,15 @@ const menuVariants: Variants = {
 	},
 };
 
+const menuItems = [
+	{ title: "Home", link: "/" },
+	{ title: "About", link: "/about" },
+	{ title: "Landscape", link: "/landscape" },
+	{ title: "Portraits", link: "/portraits" },
+	{ title: "Wedding", link: "/wedding" },
+	{ title: "Contact", link: "/contact" },
+];
+
 const Header = () => {
 	const [openMenu, setOpenMenu] = useState(false);
 
@@ -26,17 +35,11 @@ const Header = () => {
 	};
 
 	return (
-		<header className="laptop:hidden fixed w-full top-0 z-50 shadow-md ">
-			{" "}
-			{/* Added z-50above to make header work */}
+		<header className="laptop:hidden fixed w-full top-0 z-50 shadow-md">
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
 				<Link to={"/"} className="max-w-[60px]">
 					<img src={Logo} alt="" />
 				</Link>
-				{/* <Link to={"/"}>
-					<img src={Logo} alt="Logo" className="h-20" />
-				</Link> */}
-				{/* <img src={Logo} alt="Logo" className="h-20" /> */}
 				<div
 					onClick={() => setOpenMenu(true)}
 					className="text-3xl cursor-pointer"
@@ -44,7 +47,6 @@ const Header = () => {
 					<CgMenuRight />
 				</div>
 			</div>
-			{/* Menu */}
 			{openMenu && (
 				<motion.div
 					variants={menuVariants}
@@ -52,33 +54,18 @@ const Header = () => {
 					animate="show"
 					className="shadow-2xl w-5/6 fixed top-0 right-0 max-w-xs h-screen z-50"
 				>
-					{/* Icon */}
 					<div
 						onClick={handleCloseMenu}
 						className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer"
 					>
 						<IoMdClose />
 					</div>
-					{/* Menu List */}
-					<ul className="h-full flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl ">
-						<li onClick={handleCloseMenu}>
-							<Link to="/">Home</Link>
-						</li>
-						<li onClick={handleCloseMenu}>
-							<Link to="/about">About</Link>
-						</li>
-						<li onClick={handleCloseMenu}>
-							<Link to="/landscape">Landscape</Link>
-						</li>
-						<li onClick={handleCloseMenu}>
-							<Link to="/portraits">Portraits</Link>
-						</li>
-						<li onClick={handleCloseMenu}>
-							<Link to="/wedding">Wedding</Link>
-						</li>
-						<li onClick={handleCloseMenu}>
-							<Link to="/contact">Contact</Link>
-						</li>
+					<ul className="h-full flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl">
+						{menuItems.map((item, index) => (
+							<li key={index} onClick={handleCloseMenu}>
+								<Link to={item.link}>{item.title}</Link>
+							</li>
+						))}
 					</ul>
 				</motion.div>
 			)}
