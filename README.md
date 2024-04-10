@@ -32,17 +32,18 @@ This company website project uses React, TypeScript, and Vite to enhance develop
 
 ### To do
 
--   Email.js - Hook up form to Blickfang email
-    Testimonials - Add a review page using reviews from Facebook
-    Lightbox - Include a lightbox for PhotoGallery component
-    CMS - Incorporate CMS into project so client can upload pictures when needed
+-   **Email.js**: Hook up form to Blickfang email
+-   **Testimonials**: Add a review page using reviews from Facebook
+-   **Lightbox**: Include a lightbox for PhotoGallery component
+-   **Content Management System**: Integrate project with Sanity.io so client can upload pictures when needed
+-   **Add Dark Mode**: Add toggle component that switches Website to darker colours, for environemntal purposes.
 
 ## Challenges
 
 ### **Clipping Image-overflow on hover scale-effect**:
-
-    - Image tile dimensions vary, and so this could not be applied
-    - **Solution**:
-        1. getUniqueDimensions function asynchronously retrieves the unique dimensions (width and height) of each image using the Image constructor and onload event handler.
-        2. The useEffect hook is used to call fetchDimensions function once after the component mounts, ensuring that the unique dimensions are fetched and set before rendering.
-        3. The component renders the images within a ResponsiveMasonry component, ensuring responsiveness, and calculates the aspect ratio of each image container based on its unique dimensions to maintain proper image rendering.
+Image tile dimensions vary, and so this could not be applied
+  
+**Solution**:
+-   getUniqueDimensions function asynchronously retrieves the unique dimensions (width and height) of each image using the Image constructor and onload event handler-
+-   The useEffect hook is used to call fetchDimensions function once after the component mounts, ensuring that the unique dimensions are fetched and set before rendering.
+-   The component renders the images within a ResponsiveMasonry component, ensuring responsiveness, and calculates the aspect ratio of each image container based on its unique dimensions to maintain proper image rendering.
