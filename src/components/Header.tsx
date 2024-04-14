@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { CgMenuRight } from "react-icons/cg";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -29,13 +29,34 @@ const menuItems = [
 
 const Header = () => {
 	const [openMenu, setOpenMenu] = useState(false);
+	const navigationRef = useRef<HTMLDivElement>(null);
 
 	const handleCloseMenu = () => {
 		setOpenMenu(false);
 	};
 
+	useEffect(() => {
+		const handleOutsideClick = (event: MouseEvent) => {
+			if (
+				navigationRef.current &&
+				!navigationRef.current.contains(event.target as Node)
+			) {
+				setOpenMenu(false);
+			}
+		};
+
+		document.body.addEventListener("click", handleOutsideClick);
+
+		return () => {
+			document.body.removeEventListener("click", handleOutsideClick);
+		};
+	}, []);
+
 	return (
-		<header className="laptop:hidden fixed w-full top-0 z-50 shadow-md">
+		<header
+			className="laptop:hidden fixed w-full top-0 z-50 shadow-md"
+			ref={navigationRef}
+		>
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
 				<Link to={"/"} className="max-w-[60px]">
 					<img src={Logo} alt="" />
@@ -52,7 +73,7 @@ const Header = () => {
 					variants={menuVariants}
 					initial="hidden"
 					animate="show"
-					className="shadow-2xl w-5/6 fixed top-0 right-0 max-w-xs h-screen z-50"
+					className="shadow-2xl w-4/6 fixed top-0 right-0 max-w-xs h-screen z-50"
 				>
 					<div
 						onClick={handleCloseMenu}
