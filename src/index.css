@@ -7,6 +7,10 @@
 		@apply m-0 p-0 box-border bg-background;
 	}
 
+	.yarl__slide_image {
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+
 	/* html {
 		@apply bg-red-200;
 	} */

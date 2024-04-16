@@ -41,9 +41,19 @@ This company website project uses React, TypeScript, and Vite to enhance develop
 ## Challenges
 
 ### **Clipping Image-overflow on hover scale-effect**:
+
 Image tile dimensions vary, and so this could not be applied
-  
+
 **Solution**:
--   getUniqueDimensions function asynchronously retrieves the unique dimensions (width and height) of each image using the Image constructor and onload event handler-
+
+-   getUniqueDimensions function asynchronously retrieves the unique dimensions (width and height) of each image using the Image constructor and onload event handler
 -   The useEffect hook is used to call fetchDimensions function once after the component mounts, ensuring that the unique dimensions are fetched and set before rendering.
 -   The component renders the images within a ResponsiveMasonry component, ensuring responsiveness, and calculates the aspect ratio of each image container based on its unique dimensions to maintain proper image rendering.
+
+### **Unequal spacing at the bottom of Photo Gallery**:
+
+The column format of the Photo Gallery and randomization of the photo array meant that sometimes, very unequal spacing was rendered at the bottom of the component
+
+**Solution**:
+
+-   Apply the `vertical-align: bottom` CSS class to each image, in order to set the vertical alignment of each image, and produce more even distribution

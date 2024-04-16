@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import { useEffect, useState } from "react";
 
 interface Image {
 	id: `${string}-${string}-${string}-${string}-${string}`;
@@ -15,7 +17,6 @@ interface PhotoGalleryProps {
 	category?: string;
 }
 
-// Shuffle Image Array everytime page loads
 const shuffleArray = (array: Image[]) => {
 	const newArray = [...array];
 	for (let i = newArray.length - 1; i > 0; i--) {
@@ -25,57 +26,66 @@ const shuffleArray = (array: Image[]) => {
 	return newArray;
 };
 
-// Get Image Unique Dimensions for hover effect
-const getUniqueDimensions = async (images: Image[]) => {
-	const dimensions: { [key: string]: { width: number; height: number } } = {};
-
-	await Promise.all(
-		images.map(async (image) => {
-			const img = new Image();
-			img.src = getImageUrl(image.imageAddress);
-			await new Promise((resolve) => {
-				img.onload = () => {
-					dimensions[image.id] = {
-						width: img.width,
-						height: img.height,
-					};
-					resolve(null);
-				};
-			});
-		})
-	);
-
-	return dimensions;
-};
-
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
-	let images = getPhotos();
-
-	// Filter images based on category if provided
-	if (category) {
-		images = images.filter((image) => image.category === category);
-	}
-
-	images = shuffleArray(images);
-
-	//Unqiue Dimensions
+	const originalImages = getPhotos();
+	const [shuffledImages, setShuffledImages] = useState<Image[]>([]);
 	const [uniqueDimensions, setUniqueDimensions] = useState<{
 		[key: string]: { width: number; height: number };
 	}>({});
+	const [index, setIndex] = useState(-1);
 
 	useEffect(() => {
+		// Shuffle the images array and store it in state
+		setShuffledImages(shuffleArray(originalImages));
+	}, [originalImages]);
+
+	useEffect(() => {
+		// Fetch unique dimensions
 		const fetchDimensions = async () => {
-			const dimensions = await getUniqueDimensions(images);
+			const dimensions = await getUniqueDimensions(originalImages);
 			setUniqueDimensions(dimensions);
 		};
 		fetchDimensions();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [originalImages]);
+
+	const getUniqueDimensions = async (images: Image[]) => {
+		const dimensions: { [key: string]: { width: number; height: number } } =
+			{};
+
+		await Promise.all(
+			images.map(async (image) => {
+				const img = new Image();
+				img.src = getImageUrl(image.imageAddress);
+				await new Promise((resolve) => {
+					img.onload = () => {
+						dimensions[image.id] = {
+							width: img.width,
+							height: img.height,
+						};
+						resolve(null);
+					};
+				});
+			})
+		);
+
+		return dimensions;
+	};
+	const handleClick = (index: number) => {
+		// Find the index of the clicked image in the original array
+		const originalIndex = originalImages.findIndex(
+			(image) => image.id === shuffledImages[index].id
+		);
+		// Set the index state to the original index
+		setIndex(originalIndex);
+	};
+
+	// Filter images based on category if provided
+	const images = category
+		? shuffledImages.filter((image) => image.category === category)
+		: shuffledImages;
 
 	return (
 		<div className="px-6 laptop:px-16 ">
-			{" "}
-			{/* Adjust margin-top as needed */}
 			<ResponsiveMasonry
 				columnsCountBreakPoints={{ 350: 1, 640: 2, 1024: 3 }}
 			>
@@ -92,33 +102,36 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 									100
 								}%`,
 							}}
+							onClick={() => handleClick(i)}
 						>
 							<img
 								src={getImageUrl(image.imageAddress)}
 								alt={image.title}
-								className="absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
+								className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
 							/>
 						</div>
 					))}
 				</Masonry>
 			</ResponsiveMasonry>
+			<Lightbox
+				slides={originalImages.map((image) => ({
+					src: getImageUrl(image.imageAddress),
+					alt: image.title,
+				}))}
+				open={index >= 0}
+				index={index}
+				close={() => setIndex(-1)}
+				styles={{
+					root: { backgroundColor: "rgba(0, 0, 0)" },
+					navigationNext: { backgroundColor: "rgba(0, 0, 0)" },
+					toolbar: { backgroundColor: "rgba(0, 0, 0)" },
+					slide: { backgroundColor: "rgba(0, 0, 0, 0.8)" },
+					button: { backgroundColor: "rgba(0, 0, 0)" },
+					icon: { backgroundColor: "rgba(0, 0, 0)" },
+				}}
+			/>
 		</div>
 	);
 };
 
 export default PhotoGallery;
-
-/* <ul className="grid sm:grid-cols-2 xl:grid-cols-3 gap-7">
-{images.map((image) => (
-    <li
-        className="flex flex-col mx-3 my-3 p-4 border border-black/10 shadow-sm rounded-xl"
-        key={image.id}
-    >
-        <img
-            src={getImageUrl(image.imageAddress)}
-            alt={image.title}
-            className="w-full object-cover"
-        />
-    </li>
-))}
-</ul> */

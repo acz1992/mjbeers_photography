@@ -14,12 +14,14 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-grid-gallery": "^1.0.1-alpha.0",
     "react-icons": "^5.0.1",
     "react-responsive-masonry": "^2.2.0",
     "react-router-dom": "^6.22.3",
     "react-type-animation": "^3.2.0",
     "require-context": "^1.1.0",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "yet-another-react-lightbox": "^3.17.3"
   },
   "devDependencies": {
     "@types/node": "^20.12.5",
