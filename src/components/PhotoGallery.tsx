@@ -96,7 +96,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 							<img
 								src={getImageUrl(image.imageAddress)}
 								alt={image.title}
-								className="absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
+								className="align-bottom	absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
 							/>
 						</div>
 					))}
@@ -107,18 +107,3 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 };
 
 export default PhotoGallery;
-
-/* <ul className="grid sm:grid-cols-2 xl:grid-cols-3 gap-7">
-{images.map((image) => (
-    <li
-        className="flex flex-col mx-3 my-3 p-4 border border-black/10 shadow-sm rounded-xl"
-        key={image.id}
-    >
-        <img
-            src={getImageUrl(image.imageAddress)}
-            alt={image.title}
-            className="w-full object-cover"
-        />
-    </li>
-))}
-</ul> */
