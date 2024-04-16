@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import { useEffect, useState } from "react";
 
 interface Image {
 	id: `${string}-${string}-${string}-${string}-${string}`;
@@ -51,19 +53,15 @@ const getUniqueDimensions = async (images: Image[]) => {
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	let images = getPhotos();
 
-	// Filter images based on category if provided
-	if (category) {
-		images = images.filter((image) => image.category === category);
-	}
-
-	images = shuffleArray(images);
-
-	//Unqiue Dimensions
+	const [index, setIndex] = useState(-1);
 	const [uniqueDimensions, setUniqueDimensions] = useState<{
 		[key: string]: { width: number; height: number };
 	}>({});
 
 	useEffect(() => {
+		// Shuffle the images array
+		images = shuffleArray(images);
+		// Fetch unique dimensions
 		const fetchDimensions = async () => {
 			const dimensions = await getUniqueDimensions(images);
 			setUniqueDimensions(dimensions);
@@ -72,10 +70,15 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	const handleClick = (index: number) => setIndex(index);
+
+	// Filter images based on category if provided
+	if (category) {
+		images = images.filter((image) => image.category === category);
+	}
+
 	return (
 		<div className="px-6 laptop:px-16 ">
-			{" "}
-			{/* Adjust margin-top as needed */}
 			<ResponsiveMasonry
 				columnsCountBreakPoints={{ 350: 1, 640: 2, 1024: 3 }}
 			>
@@ -92,16 +95,26 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 									100
 								}%`,
 							}}
+							onClick={() => handleClick(i)} // Pass the index to handleClick function
 						>
 							<img
 								src={getImageUrl(image.imageAddress)}
 								alt={image.title}
-								className="align-bottom	absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
+								className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
 							/>
 						</div>
 					))}
 				</Masonry>
 			</ResponsiveMasonry>
+			<Lightbox
+				slides={images.map((image) => ({
+					src: getImageUrl(image.imageAddress),
+					alt: image.title,
+				}))}
+				open={index >= 0}
+				index={index}
+				close={() => setIndex(-1)}
+			/>
 		</div>
 	);
 };
