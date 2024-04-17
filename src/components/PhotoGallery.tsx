@@ -94,6 +94,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 					{images.map((image, i) => (
 						<LazyLoad height={200} key={i} once>
 							<div
+								key={i}
 								className="relative overflow-hidden"
 								style={{
 									width: "100%",

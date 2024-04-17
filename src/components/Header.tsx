@@ -79,7 +79,7 @@ const Header = () => {
 					>
 						<IoMdClose />
 					</div>
-					<div className="flex flex-col justify-center items-center h-full gap-10">
+					<div className="flex flex-col justify-center items-center h-full gap-24 tablet:gap-40">
 						<ul className="flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl">
 							{menuItems.map((item, index) => (
 								<Link
