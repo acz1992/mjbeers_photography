@@ -5,6 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Variants } from "../utils/CustomProps";
 import Logo from "/logo/mjblogo.png";
+import Socials from "./Socials";
 
 const menuVariants: Variants = {
 	hidden: {
@@ -61,11 +62,8 @@ const Header = () => {
 				<Link to={"/"} className="max-w-[60px]">
 					<img src={Logo} alt="" />
 				</Link>
-				<div
-					onClick={() => setOpenMenu(true)}
-					className="text-3xl cursor-pointer transition-transform transform-gpu hover:scale-110"
-				>
-					<CgMenuRight />
+				<div onClick={() => setOpenMenu(true)}>
+					<CgMenuRight className="text-3xl cursor-pointer transition-transform transform-gpu hover:scale-110" />
 				</div>
 			</div>
 			{openMenu && (
@@ -81,19 +79,22 @@ const Header = () => {
 					>
 						<IoMdClose />
 					</div>
-					<ul className="h-full flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl">
-						{menuItems.map((item, index) => (
-							<Link
-								key={index}
-								onClick={handleCloseMenu}
-								to={item.link}
-								className="group transition duration-300 relative"
-							>
-								{item.title}
-								<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
-							</Link>
-						))}
-					</ul>
+					<div className="flex flex-col justify-center items-center h-full gap-10">
+						<ul className="flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl">
+							{menuItems.map((item, index) => (
+								<Link
+									key={index}
+									onClick={handleCloseMenu}
+									to={item.link}
+									className="group transition duration-300 relative"
+								>
+									{item.title}
+									<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
+								</Link>
+							))}
+						</ul>
+						<Socials />
+					</div>
 				</motion.div>
 			)}
 		</header>
