@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Variants } from "../utils/CustomProps";
 import Logo from "/logo/mjblogo.png";
 import Socials from "./Socials";
+import Footer from "./Footer";
 
 const menuVariants: Variants = {
 	hidden: {
@@ -95,6 +96,7 @@ const Header = () => {
 						</ul>
 						<Socials />
 					</div>
+					<Footer />
 				</motion.div>
 			)}
 		</header>

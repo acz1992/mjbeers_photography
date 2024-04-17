@@ -3,8 +3,8 @@ import React from "react";
 const Footer: React.FC = () => {
 	// Specify the component as React functional component
 	return (
-		<div className="text-black w-full py-4 text-xs tablet:text-base laptop:text-lg  font-semibold py-1 flex gap-5 justify-center">
-			All rights reserved &copy; {new Date().getFullYear()}
+		<div className="text-black w-full py-4 text-xs  font-thin flex justify-center absolute bottom-0">
+			Made by &nbsp;
 			<a
 				href="https://github.com/acz1992"
 				className="hover:text-gray-400"
