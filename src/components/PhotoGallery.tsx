@@ -4,6 +4,7 @@ import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import LazyLoad from "react-lazyload";
 
 interface Image {
 	id: `${string}-${string}-${string}-${string}-${string}`;
@@ -85,25 +86,27 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 			>
 				<Masonry gutter={"10px"}>
 					{images.map((image, i) => (
-						<div
-							key={i}
-							className="relative overflow-hidden"
-							style={{
-								width: "100%",
-								paddingBottom: `${
-									(uniqueDimensions[image.id]?.height /
-										uniqueDimensions[image.id]?.width) *
-									100
-								}%`,
-							}}
-							onClick={() => handleClick(i)} // Pass the index to handleClick function
-						>
-							<img
-								src={getImageUrl(image.imageAddress)}
-								alt={image.title}
-								className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
-							/>
-						</div>
+						<LazyLoad height={200} key={i} once>
+							<div
+								key={i}
+								className="relative overflow-hidden"
+								style={{
+									width: "100%",
+									paddingBottom: `${
+										(uniqueDimensions[image.id]?.height /
+											uniqueDimensions[image.id]?.width) *
+										100
+									}%`,
+								}}
+								onClick={() => handleClick(i)} // Pass the index to handleClick function
+							>
+								<img
+									src={getImageUrl(image.imageAddress)}
+									alt={image.title}
+									className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
+								/>
+							</div>
+						</LazyLoad>
 					))}
 				</Masonry>
 			</ResponsiveMasonry>
