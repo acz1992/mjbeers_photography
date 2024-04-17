@@ -10,7 +10,6 @@ const Home = () => {
 			exit={{ opacity: 0 }}
 			transition={transition1}
 		>
-			{/* <PhotoGrid /> */}
 			<PhotoGallery />
 		</motion.section>
 	);
