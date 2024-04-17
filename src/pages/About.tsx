@@ -18,7 +18,7 @@ const About = () => {
 						sequence={[
 							"Hi, I'm Mitch",
 							1000,
-							"I'm a Forensic Investigator",
+							"I'm a Forensic Examiner",
 							1000,
 							"Loving father of one",
 							1000,

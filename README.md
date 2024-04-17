@@ -28,6 +28,8 @@ This company website project uses React, TypeScript, and Vite to enhance develop
 
 -   **React Responsive Masonry**: Enables the creation of responsive grid layouts (like Pinterest) for presenting content, ensuring optimal display across various screen sizes and devices.
 
+-   **React Lazy Load**: Allows components or images to be loaded lazily, meaning they are only rendered when they enter the viewport, enhancing performance by reducing initial page load times.
+
 ## Future
 
 ### To do
