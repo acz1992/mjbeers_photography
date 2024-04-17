@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Socials from "./Socials";
+import Footer from "./Footer";
 import Logo from "/logo/mjblogo.png";
 
 type Link = {
@@ -41,6 +42,7 @@ const Sidebar = () => {
 				</div>
 				<Socials />
 			</div>
+			<Footer />
 		</nav>
 	);
 };
