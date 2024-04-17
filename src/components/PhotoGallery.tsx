@@ -4,6 +4,7 @@ import { getImageUrl } from "../utils/image-utils";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { useEffect, useState } from "react";
+import LazyLoad from "react-lazyload";
 
 interface Image {
 	id: `${string}-${string}-${string}-${string}-${string}`;
@@ -35,7 +36,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	const [index, setIndex] = useState(-1);
 
 	useEffect(() => {
-		// Shuffle the images array and store it in state
+		// Shuffle the images array and store it as state
 		setShuffledImages(shuffleArray(originalImages));
 	}, [originalImages]);
 
@@ -71,11 +72,11 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 		return dimensions;
 	};
 	const handleClick = (index: number) => {
-		// Find the index of the clicked image in the original array
+		// FInd index of clicked image in original array
 		const originalIndex = originalImages.findIndex(
 			(image) => image.id === shuffledImages[index].id
 		);
-		// Set the index state to the original index
+		// Set index state to original index
 		setIndex(originalIndex);
 	};
 
@@ -91,25 +92,26 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 			>
 				<Masonry gutter={"10px"}>
 					{images.map((image, i) => (
-						<div
-							key={i}
-							className="relative overflow-hidden"
-							style={{
-								width: "100%",
-								paddingBottom: `${
-									(uniqueDimensions[image.id]?.height /
-										uniqueDimensions[image.id]?.width) *
-									100
-								}%`,
-							}}
-							onClick={() => handleClick(i)}
-						>
-							<img
-								src={getImageUrl(image.imageAddress)}
-								alt={image.title}
-								className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
-							/>
-						</div>
+						<LazyLoad height={200} key={i} once>
+							<div
+								className="relative overflow-hidden"
+								style={{
+									width: "100%",
+									paddingBottom: `${
+										(uniqueDimensions[image.id]?.height /
+											uniqueDimensions[image.id]?.width) *
+										100
+									}%`,
+								}}
+								onClick={() => handleClick(i)}
+							>
+								<img
+									src={getImageUrl(image.imageAddress)}
+									alt={image.title}
+									className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
+								/>
+							</div>
+						</LazyLoad>
 					))}
 				</Masonry>
 			</ResponsiveMasonry>
