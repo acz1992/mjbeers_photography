@@ -6,7 +6,7 @@ import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import { Grid } from "react-loader-spinner";
+import { RotatingSquare } from "react-loader-spinner";
 
 interface Image {
 	id: `${string}-${string}-${string}-${string}-${string}`;
@@ -89,12 +89,12 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 				next={loadMoreImages}
 				hasMore={hasMore}
 				loader={
-					<div className="flex justify-center items-center	content-center my-4">
-						<Grid
+					<div className="flex justify-center items-center h-screen">
+						<RotatingSquare
 							height={160}
 							width={160}
 							color="#000000"
-							ariaLabel="loading"
+							ariaLabel="rotating-square-loading"
 						/>
 					</div>
 				}
