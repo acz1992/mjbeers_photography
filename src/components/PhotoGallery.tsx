@@ -46,7 +46,7 @@ const getUniqueDimensions = async (images: Image[]) => {
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	const allImages = getPhotos();
 	const [images, setImages] = useState<Image[]>([]);
-	const [hasMore, setHasMore] = useState(true);
+	const [hasMore] = useState(true);
 	const [index, setIndex] = useState(-1);
 	const [uniqueDimensions, setUniqueDimensions] = useState<{
 		[key: string]: { width: number; height: number };
