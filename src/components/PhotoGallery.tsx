@@ -89,11 +89,11 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 				next={loadMoreImages}
 				hasMore={hasMore}
 				loader={
-					<div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+					<div className="flex justify-center content-centermy-4">
 						<Grid
-							height={80}
-							width={80}
-							color="#4fa94d"
+							height={160}
+							width={160}
+							color="#000000"
 							ariaLabel="loading"
 						/>
 					</div>
