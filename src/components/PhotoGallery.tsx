@@ -6,6 +6,7 @@ import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { Grid } from "react-loader-spinner";
 
 interface Image {
 	id: `${string}-${string}-${string}-${string}-${string}`;
@@ -45,7 +46,7 @@ const getUniqueDimensions = async (images: Image[]) => {
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	const allImages = getPhotos();
 	const [images, setImages] = useState<Image[]>([]);
-	const [hasMore] = useState(true);
+	const [hasMore, setHasMore] = useState(true);
 	const [index, setIndex] = useState(-1);
 	const [uniqueDimensions, setUniqueDimensions] = useState<{
 		[key: string]: { width: number; height: number };
@@ -87,7 +88,16 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 				dataLength={images.length}
 				next={loadMoreImages}
 				hasMore={hasMore}
-				loader={<h4>Loading...</h4>}
+				loader={
+					<div className="flex justify-center my-4">
+						<Grid
+							height={80}
+							width={80}
+							color="#000000"
+							ariaLabel="loading"
+						/>
+					</div>
+				}
 			>
 				<ResponsiveMasonry
 					columnsCountBreakPoints={{ 350: 1, 640: 2, 1024: 3 }}
@@ -107,7 +117,27 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 								}}
 								onClick={() => handleClick(i)}
 							>
-								<LazyLoad height={200} offset={100} once>
+								<LazyLoad
+									height={uniqueDimensions[image.id]?.height}
+									offset={100}
+									once
+									placeholder={
+										<div
+											style={{
+												width: "100%",
+												paddingBottom: `${
+													(uniqueDimensions[image.id]
+														?.height /
+														uniqueDimensions[
+															image.id
+														]?.width) *
+													100
+												}%`,
+												backgroundColor: "#e0e0e0",
+											}}
+										/>
+									}
+								>
 									<img
 										src={getImageUrl(image.imageAddress)}
 										alt={image.title}
