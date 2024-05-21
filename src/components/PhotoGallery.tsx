@@ -89,7 +89,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 				next={loadMoreImages}
 				hasMore={hasMore}
 				loader={
-					<div className="flex justify-center content-centermy-4">
+					<div className="flex justify-center content-center my-4">
 						<Grid
 							height={160}
 							width={160}
