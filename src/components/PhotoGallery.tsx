@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import InfiniteScroll from "react-infinite-scroll-component";
+import LazyLoad from "react-lazyload";
 import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
 import Lightbox from "yet-another-react-lightbox";
@@ -44,7 +45,7 @@ const getUniqueDimensions = async (images: Image[]) => {
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	const allImages = getPhotos();
 	const [images, setImages] = useState<Image[]>([]);
-	const [hasMore, setHasMore] = useState(true);
+	const [hasMore] = useState(true);
 	const [index, setIndex] = useState(-1);
 	const [uniqueDimensions, setUniqueDimensions] = useState<{
 		[key: string]: { width: number; height: number };
@@ -106,12 +107,13 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 								}}
 								onClick={() => handleClick(i)}
 							>
-								<img
-									loading={"lazy"}
-									src={getImageUrl(image.imageAddress)}
-									alt={image.title}
-									className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
-								/>
+								<LazyLoad height={200} offset={100} once>
+									<img
+										src={getImageUrl(image.imageAddress)}
+										alt={image.title}
+										className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
+									/>
+								</LazyLoad>
 							</div>
 						))}
 					</Masonry>
