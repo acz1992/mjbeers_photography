@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { getPhotos } from "../data/photo";
 import { getImageUrl } from "../utils/image-utils";
 import Lightbox from "yet-another-react-lightbox";
@@ -16,16 +17,6 @@ interface Image {
 interface PhotoGalleryProps {
 	category?: string;
 }
-
-// Shuffle Image Array everytime page loads
-/* const shuffleArray = (array: Image[]) => {
-	const newArray = [...array];
-	for (let i = newArray.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-	}
-	return newArray;
-}; */
 
 // Get Image Unique Dimensions for hover effect
 const getUniqueDimensions = async (images: Image[]) => {
@@ -51,21 +42,33 @@ const getUniqueDimensions = async (images: Image[]) => {
 };
 
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
-	let images = getPhotos();
+	const allImages = getPhotos();
+	const [images, setImages] = useState<Image[]>([]);
+	const [hasMore, setHasMore] = useState(true);
 	const [index, setIndex] = useState(-1);
-
-	/* 	images = shuffleArray(images);
-	 */ const handleClick = (index: number) => setIndex(index);
-
-	// Filter images based on category if provided
-	if (category) {
-		images = images.filter((image) => image.category === category);
-	}
-
-	//Unqiue Dimensions
 	const [uniqueDimensions, setUniqueDimensions] = useState<{
 		[key: string]: { width: number; height: number };
 	}>({});
+
+	// Filter images based on category if provided
+	const filteredImages = category
+		? allImages.filter((image) => image.category === category)
+		: allImages;
+
+	const ITEMS_PER_LOAD = 10;
+
+	// Load more images function to repeat images
+	const loadMoreImages = () => {
+		const nextImages = filteredImages.slice(0, ITEMS_PER_LOAD);
+		setImages((prevImages) => [...prevImages, ...nextImages]);
+	};
+
+	// Load initial images and dimensions
+	useEffect(() => {
+		setImages([]); // Clear images when category changes
+		loadMoreImages();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [category]);
 
 	useEffect(() => {
 		const fetchDimensions = async () => {
@@ -73,41 +76,47 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 			setUniqueDimensions(dimensions);
 		};
 		fetchDimensions();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [images]);
+
+	const handleClick = (index: number) => setIndex(index);
 
 	return (
-		<div className="px-6 laptop:px-16 ">
-			{" "}
-			{/* Adjust margin-top as needed */}
-			<ResponsiveMasonry
-				columnsCountBreakPoints={{ 350: 1, 640: 2, 1024: 3 }}
+		<div className="px-6 laptop:px-16">
+			<InfiniteScroll
+				dataLength={images.length}
+				next={loadMoreImages}
+				hasMore={hasMore}
+				loader={<h4>Loading...</h4>}
 			>
-				<Masonry gutter={"10px"}>
-					{images.map((image, i) => (
-						<div
-							key={i}
-							className="relative overflow-hidden"
-							style={{
-								width: "100%",
-								paddingBottom: `${
-									(uniqueDimensions[image.id]?.height /
-										uniqueDimensions[image.id]?.width) *
-									100
-								}%`,
-							}}
-							onClick={() => handleClick(i)} // Pass the index to handleClick function
-						>
-							<img
-								loading={"lazy"}
-								src={getImageUrl(image.imageAddress)}
-								alt={image.title}
-								className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
-							/>
-						</div>
-					))}
-				</Masonry>
-			</ResponsiveMasonry>
+				<ResponsiveMasonry
+					columnsCountBreakPoints={{ 350: 1, 640: 2, 1024: 3 }}
+				>
+					<Masonry gutter={"10px"}>
+						{images.map((image, i) => (
+							<div
+								key={`${image.id}-${i}`} // Ensure unique keys for repeated images
+								className="relative overflow-hidden"
+								style={{
+									width: "100%",
+									paddingBottom: `${
+										(uniqueDimensions[image.id]?.height /
+											uniqueDimensions[image.id]?.width) *
+										100
+									}%`,
+								}}
+								onClick={() => handleClick(i)}
+							>
+								<img
+									loading={"lazy"}
+									src={getImageUrl(image.imageAddress)}
+									alt={image.title}
+									className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
+								/>
+							</div>
+						))}
+					</Masonry>
+				</ResponsiveMasonry>
+			</InfiniteScroll>
 			<Lightbox
 				slides={images.map((image) => ({
 					src: getImageUrl(image.imageAddress),
