@@ -57,7 +57,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 		? allImages.filter((image) => image.category === category)
 		: allImages;
 
-	const ITEMS_PER_LOAD = 10;
+	const ITEMS_PER_LOAD = 1000;
 
 	// Load more images function to repeat images
 	const loadMoreImages = () => {
@@ -69,6 +69,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	useEffect(() => {
 		setImages([]); // Clear images when category changes
 		loadMoreImages();
+		window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top on category change
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [category]);
 
@@ -84,6 +85,15 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 
 	return (
 		<div className="px-6 laptop:px-16">
+			<style>
+				{`
+				@keyframes fadeIn {
+					to {
+						opacity: 1;
+					}
+				}
+				`}
+			</style>
 			<InfiniteScroll
 				dataLength={images.length}
 				next={loadMoreImages}
@@ -142,6 +152,10 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 										src={getImageUrl(image.imageAddress)}
 										alt={image.title}
 										className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
+										style={{
+											opacity: 0,
+											animation: "fadeIn 1s forwards",
+										}}
 									/>
 								</LazyLoad>
 							</div>
