@@ -51,7 +51,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const newImages = await getPhotos();
+			const newImages = await getPhotos(page); // Pass page number to getPhotos
 			const filteredImages = category
 				? newImages.filter(
 						(image: Image) => image.category === category
@@ -73,7 +73,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 	const handleClick = (index: number) => setIndex(index);
 
 	const loadMoreImages = () => {
-		setPage((prevPage) => (images.length === 0 ? 1 : prevPage + 1));
+		setPage((prevPage) => prevPage + 1); // Increment page number
 	};
 
 	return (

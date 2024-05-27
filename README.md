@@ -14,7 +14,7 @@ The client needed a minimalist-style website where he could showcase his work an
 
 ### Stack
 
-This company website project uses React, TypeScript, and Vite to enhance development efficiency, ensure code reliability with strong typing, and optimize performance for a seamless user experience.
+This company website project uses React, TypeScript, Sanity Io Headless CMS and Vite to enhance development efficiency, ensure code reliability with strong typing, and optimize performance for a seamless user experience.
 
 ### Resources
 
@@ -34,9 +34,9 @@ This company website project uses React, TypeScript, and Vite to enhance develop
 
 ### To do
 
+-   **Multiple Categories**: Enable option of multiple categories, so some pictures can be simultaneously chosen for Home and for specific page
 -   **Email.js**: Hook up form to email
 -   **Testimonials**: Add a review page using reviews from Facebook
--   **Content Management System**: Integrate project with Sanity.io so client can upload pictures when needed
 -   **Add Dark Mode**: Add toggle component that switches Website to darker colours, for environemntal purposes.
 
 ## Challenges

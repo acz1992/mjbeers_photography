@@ -1,4 +1,4 @@
-import type {StructureResolver} from 'sanity/structure'
+/* import type {StructureResolver} from 'sanity/structure'
 import {ImagesIcon, SparklesIcon, UserIcon} from '@sanity/icons'
 
 export const structure: StructureResolver = (S) =>
@@ -23,3 +23,4 @@ export const structure: StructureResolver = (S) =>
         .child(S.documentList().title('Wedding Photos').filter('category == "wedding"')),
       S.divider(),
     ])
+ */
