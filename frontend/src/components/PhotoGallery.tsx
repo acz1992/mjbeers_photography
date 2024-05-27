@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import InfiniteScroll from "react-infinite-scroll-component";
 import LazyLoad from "react-lazyload";
-import { getPhotos } from "../data/photo";
-import { getImageUrl } from "../utils/image-utils";
+import { getPhotos } from "../sanity/client";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { RotatingSquare } from "react-loader-spinner";
 
 interface Image {
-	id: `${string}-${string}-${string}-${string}-${string}`;
+	_id: string;
 	title: string;
 	description: string;
 	category: string;
@@ -20,17 +19,16 @@ interface PhotoGalleryProps {
 	category?: string;
 }
 
-// Get Image Unique Dimensions for hover effect
 const getUniqueDimensions = async (images: Image[]) => {
 	const dimensions: { [key: string]: { width: number; height: number } } = {};
 
 	await Promise.all(
 		images.map(async (image) => {
 			const img = new Image();
-			img.src = getImageUrl(image.imageAddress);
+			img.src = image.imageAddress;
 			await new Promise((resolve) => {
 				img.onload = () => {
-					dimensions[image.id] = {
+					dimensions[image._id] = {
 						width: img.width,
 						height: img.height,
 					};
@@ -44,60 +42,55 @@ const getUniqueDimensions = async (images: Image[]) => {
 };
 
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
-	const allImages = getPhotos();
 	const [images, setImages] = useState<Image[]>([]);
-	const [hasMore] = useState(true);
+	const [page, setPage] = useState(1);
 	const [index, setIndex] = useState(-1);
 	const [uniqueDimensions, setUniqueDimensions] = useState<{
 		[key: string]: { width: number; height: number };
 	}>({});
 
-	// Filter images based on category if provided
-	const filteredImages = category
-		? allImages.filter((image) => image.category === category)
-		: allImages;
-
-	const ITEMS_PER_LOAD = 1000;
-
-	// Load more images function to repeat images
-	const loadMoreImages = () => {
-		const nextImages = filteredImages.slice(0, ITEMS_PER_LOAD);
-		setImages((prevImages) => [...prevImages, ...nextImages]);
-	};
-
-	// Load initial images and dimensions
 	useEffect(() => {
-		setImages([]); // Clear images when category changes
-		loadMoreImages();
-		window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top on category change
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [category]);
+		const fetchData = async () => {
+			const newImages = await getPhotos();
+			const filteredImages = category
+				? newImages.filter(
+						(image: Image) => image.category === category
+				  )
+				: newImages;
 
-	useEffect(() => {
-		const fetchDimensions = async () => {
-			const dimensions = await getUniqueDimensions(images);
-			setUniqueDimensions(dimensions);
+			setImages((prevImages) => [...prevImages, ...filteredImages]);
+
+			const dimensions = await getUniqueDimensions(filteredImages);
+			setUniqueDimensions((prevDimensions) => ({
+				...prevDimensions,
+				...dimensions,
+			}));
 		};
-		fetchDimensions();
-	}, [images]);
+
+		fetchData();
+	}, [category, page]);
 
 	const handleClick = (index: number) => setIndex(index);
+
+	const loadMoreImages = () => {
+		setPage((prevPage) => (images.length === 0 ? 1 : prevPage + 1));
+	};
 
 	return (
 		<div className="px-6 laptop:px-16">
 			<style>
 				{`
-				@keyframes fadeIn {
-					to {
-						opacity: 1;
-					}
-				}
-				`}
+        @keyframes fadeIn {
+          to {
+            opacity: 1;
+          }
+        }
+        `}
 			</style>
 			<InfiniteScroll
 				dataLength={images.length}
 				next={loadMoreImages}
-				hasMore={hasMore}
+				hasMore={true} // Always set to true to enable infinite scrolling
 				loader={
 					<div className="flex justify-center items-center h-screen">
 						<RotatingSquare
@@ -115,20 +108,21 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 					<Masonry gutter={"10px"}>
 						{images.map((image, i) => (
 							<div
-								key={`${image.id}-${i}`} // Ensure unique keys for repeated images
+								key={image._id}
 								className="relative overflow-hidden"
 								style={{
 									width: "100%",
 									paddingBottom: `${
-										(uniqueDimensions[image.id]?.height /
-											uniqueDimensions[image.id]?.width) *
+										(uniqueDimensions[image._id]?.height /
+											uniqueDimensions[image._id]
+												?.width) *
 										100
 									}%`,
 								}}
 								onClick={() => handleClick(i)}
 							>
 								<LazyLoad
-									height={uniqueDimensions[image.id]?.height}
+									height={uniqueDimensions[image._id]?.height}
 									offset={100}
 									once
 									placeholder={
@@ -136,10 +130,10 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 											style={{
 												width: "100%",
 												paddingBottom: `${
-													(uniqueDimensions[image.id]
+													(uniqueDimensions[image._id]
 														?.height /
 														uniqueDimensions[
-															image.id
+															image._id
 														]?.width) *
 													100
 												}%`,
@@ -149,7 +143,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 									}
 								>
 									<img
-										src={getImageUrl(image.imageAddress)}
+										src={image.imageAddress}
 										alt={image.title}
 										className="align-bottom absolute inset-0 object-cover hover:scale-110 transition-all duration-1000"
 										style={{
@@ -165,7 +159,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 			</InfiniteScroll>
 			<Lightbox
 				slides={images.map((image) => ({
-					src: getImageUrl(image.imageAddress),
+					src: image.imageAddress,
 					alt: image.title,
 				}))}
 				open={index >= 0}
