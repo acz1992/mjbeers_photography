@@ -11,7 +11,7 @@ interface Image {
 	_id: string;
 	title: string;
 	description: string;
-	category: string;
+	category: string[];
 	imageAddress: string;
 }
 
@@ -53,8 +53,8 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 		const fetchData = async () => {
 			const newImages = await getPhotos(page); // Pass page number to getPhotos
 			const filteredImages = category
-				? newImages.filter(
-						(image: Image) => image.category === category
+				? newImages.filter((image: Image) =>
+						image.category.includes(category)
 				  )
 				: newImages;
 

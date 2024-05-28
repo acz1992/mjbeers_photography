@@ -10,7 +10,7 @@ const Home = () => {
 			exit={{ opacity: 0 }}
 			transition={transition1}
 		>
-			<PhotoGallery />
+			<PhotoGallery category="home" />
 		</motion.section>
 	);
 };
