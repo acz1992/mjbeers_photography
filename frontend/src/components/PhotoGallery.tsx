@@ -51,7 +51,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ category }) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const newImages = await getPhotos(page); // Pass page number to getPhotos
+			const newImages = await getPhotos(); // Pass page number to getPhotos
 			const filteredImages = category
 				? newImages.filter((image: Image) =>
 						image.category.includes(category)
