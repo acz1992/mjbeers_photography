@@ -1,3 +1,4 @@
+import React from "react";
 import PhotoGallery from "../components/PhotoGallery";
 import { motion } from "framer-motion";
 import { transition1 } from "../utils/transitions";
@@ -10,7 +11,7 @@ const Home = () => {
 			exit={{ opacity: 0 }}
 			transition={transition1}
 		>
-			<PhotoGallery />
+			<PhotoGallery category="home" />
 		</motion.section>
 	);
 };
