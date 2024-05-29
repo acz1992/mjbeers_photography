@@ -7,6 +7,7 @@ import { Variants } from "../utils/CustomProps";
 import Logo from "/logo/mjblogo.png";
 import Socials from "./Socials";
 import Footer from "./Footer";
+import DarkModeToggle from "./DarkModeToggle"; // Adjust the path as needed
 
 const menuVariants: Variants = {
 	hidden: {
@@ -56,13 +57,14 @@ const Header = () => {
 
 	return (
 		<header
-			className="laptop:hidden fixed w-full top-0 z-50 shadow-md"
+			className="laptop:hidden fixed w-full top-0 z-50 shadow-md bg-background dark:bg-background-dark"
 			ref={navigationRef}
 		>
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
 				<Link to={"/"} className="max-w-[60px]">
-					<img src={Logo} alt="" />
+					<img src={Logo} alt="Logo" />
 				</Link>
+				<DarkModeToggle />
 				<div onClick={() => setOpenMenu(true)}>
 					<CgMenuRight className="text-3xl cursor-pointer transition-transform transform-gpu hover:scale-110" />
 				</div>
@@ -80,7 +82,7 @@ const Header = () => {
 					>
 						<IoMdClose />
 					</div>
-					<div className="flex flex-col justify-center items-center h-full gap-24 tablet:gap-40">
+					<div className="flex flex-col justify-center items-center h-full gap-24 tablet:gap-40 bg-background dark:bg-background-dark">
 						<ul className="flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl">
 							{menuItems.map((item, index) => (
 								<Link
