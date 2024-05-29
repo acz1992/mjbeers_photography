@@ -1,4 +1,3 @@
-import React from "react";
 import PhotoGallery from "../components/PhotoGallery";
 import { motion } from "framer-motion";
 import { transition1 } from "../utils/transitions";
