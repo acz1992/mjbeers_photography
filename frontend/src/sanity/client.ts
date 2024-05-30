@@ -9,7 +9,6 @@ export const client = createClient({
 });
 
 export async function getPhotos() {
-	// Construct your query based on the page number, if needed
 	const query =
 		'*[_type == "photo"]{_id, title, description, category, "imageAddress": image.asset->url}';
 	const photos = await client.fetch(query);

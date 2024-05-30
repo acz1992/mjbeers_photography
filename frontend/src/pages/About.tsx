@@ -29,19 +29,15 @@ const About = () => {
 						wrapper="span"
 						speed={50}
 						style={{
-							fontSize: "1.2rem", // Default font size
+							fontSize: "1.2rem",
 
 							...(window.innerWidth > 600 && {
 								fontSize: "1.8rem",
-							}), // Media query for viewport width 600px - 1200px
-
-							/* ...(window.innerWidth > 1024 && {
-								fontSize: "1.4rem",
-							}),  */
+							}),
 
 							...(window.innerWidth > 1200 && {
 								fontSize: "2rem",
-							}), // Media query for viewport width > 1200px
+							}),
 
 							width: "100%",
 

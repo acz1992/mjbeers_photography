@@ -11,10 +11,6 @@
 		background-color: rgba(255, 255, 255, 0.8);
 	}
 
-	/* html {
-		@apply bg-red-200;
-	} */
-
 	/* Global Page Style */
 	.pages-container {
 		@apply flex justify-center;
@@ -22,38 +18,13 @@
 
 	/* Height defined custom utility */
 	section {
-		@apply w-full mt-[28%] tablet:mt-[20%] laptop:my-0  /* laptop:w-11/12 laptop:h-[90vh] */  /* bg-blue-200 */;
+		@apply w-full mt-[28%] tablet:mt-[20%] laptop:my-0;
 	}
 
 	/* Custom CSS */
 	.transition-delay-150 {
 		transition-delay: 150ms;
 	}
-
-	/* li >  {
-		@apply h-[20px];
-	}
- */
-	/* body {
-		@apply;
-	}
-	.h1 {
-		@apply;
-	}
-	.section {
-		@apply h-screen w-screen sm:;
-	}
-	.btn {
-		@apply;
-	}
-
-	.btn:hover {
-		@apply;
-	}
-
-	p {
-		@apply;
-	} */
 }
 
 @layer utilities {

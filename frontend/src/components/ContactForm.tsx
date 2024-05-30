@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
 interface FormData {
 	name: string;
@@ -51,7 +51,7 @@ const ContactForm = () => {
 							message: "",
 						});
 					},
-					(error) => {
+					(error: EmailJSResponseStatus) => {
 						console.log("FAILED...", error);
 					}
 				);
@@ -80,7 +80,7 @@ const ContactForm = () => {
 	return (
 		<>
 			<form
-				ref={form} // Ensure the form ref is assigned here
+				ref={form}
 				onSubmit={sendEmail}
 				className="w-full md:max-w-xl lg:max-w-3xl xl:max-w-4xl"
 			>

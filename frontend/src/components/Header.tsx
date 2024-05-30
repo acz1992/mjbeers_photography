@@ -13,8 +13,7 @@ import SlidingToggle from "./SlidingToggle";
 import {
 	DarkModeContext,
 	DarkModeContextType,
-} from "../context/DarkModeContext"; // Import the DarkModeContextType
-
+} from "../context/DarkModeContext";
 const menuVariants: Variants = {
 	hidden: {
 		x: "100%",
@@ -39,7 +38,7 @@ const menuItems = [
 const Header = () => {
 	const [openMenu, setOpenMenu] = useState(false);
 	const navigationRef = useRef<HTMLDivElement>(null);
-	const { isDarkMode } = useContext(DarkModeContext) as DarkModeContextType; // Provide TypeScript with the correct type information
+	const { isDarkMode } = useContext(DarkModeContext) as DarkModeContextType;
 
 	const handleCloseMenu = () => {
 		setOpenMenu(false);

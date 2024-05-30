@@ -13,7 +13,7 @@ export default {
 			colors: {
 				primary: {
 					DEFAULT: "#313638",
-					dark: "#bbbbbb", // Define the primary color for dark mode
+					dark: "#bbbbbb",
 				},
 				background: {
 					DEFAULT: "#f0f8ff",

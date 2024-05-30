@@ -22,15 +22,7 @@ export const photoType = defineType({
       validation: (rule) => rule.required().error('Required to generate a page on website'),
       hidden: ({document}) => !document?.title,
     }),
-    /* defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'string',
-      options: {
-        list: ['landscape', 'portraits', 'wedding'],
-        layout: 'radio',
-      },
-    }), */
+
     defineField({
       name: 'category',
       title: 'Category',
