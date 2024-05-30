@@ -92,7 +92,7 @@ const ContactForm = () => {
 							name="name"
 							value={formData.name}
 							onChange={handleInputChange}
-							className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4"
+							className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark"
 							required
 							placeholder="Your name"
 						/>
@@ -104,7 +104,7 @@ const ContactForm = () => {
 							name="email"
 							value={formData.email}
 							onChange={handleInputChange}
-							className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background"
+							className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark"
 							required
 							placeholder="Your email address"
 						/>
@@ -117,7 +117,7 @@ const ContactForm = () => {
 						name="subject"
 						value={formData.subject}
 						onChange={handleInputChange}
-						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background"
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark"
 						required
 						placeholder="Subject"
 					/>
@@ -129,7 +129,7 @@ const ContactForm = () => {
 						value={formData.message}
 						onChange={handleInputChange}
 						rows={4}
-						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 resize-none bg-background"
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 resize-none bg-background dark:bg-primary-dark"
 						required
 						placeholder="What Can I do for you?"
 					></textarea>
@@ -137,7 +137,7 @@ const ContactForm = () => {
 				<div className="flex w-full justify-center">
 					<button
 						type="submit"
-						className="w-1/3 justify-self-center px-4 py-2 text-sm font-medium text-white bg-primary outline-none hover:bg-slate-700 transition delay-150 duration-300 ease-in-out focus:bg-slate-400"
+						className="w-1/3 justify-self-center px-4 py-2 text-sm font-medium text-white bg-primary dark:bg-primary-dark dark:text-background-dark outline-none hover:bg-slate-700 transition delay-150 duration-300 ease-in-out focus:bg-slate-400 "
 					>
 						Submit
 					</button>

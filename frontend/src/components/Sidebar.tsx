@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Socials from "./Socials";
 import Footer from "./Footer";
 import Logo from "/logo/mjblogo.png";
-import DarkModeToggle from "./DarkModeToggle"; // Adjust the path as needed
+import SlidingToggle from "./SlidingToggle";
 
 type Link = {
 	path: string;
@@ -21,7 +21,7 @@ const links: Link[] = [
 const Sidebar = () => {
 	return (
 		<nav className="hidden laptop:fixed pl-10 h-screen laptop:flex flex-col items-center justify-center bg-background dark:bg-background-dark">
-			<div className="flex flex-col gap-8">
+			<div className="flex flex-col mb-6 gap-8">
 				{/* Logo */}
 				<div className="">
 					<Link to={"/"}>
@@ -37,13 +37,13 @@ const Sidebar = () => {
 							className="group transition duration-300"
 						>
 							{link.label}
-							<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
+							<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-primary-dark"></span>
 						</Link>
 					))}
 				</div>
 				<Socials />
 			</div>
-			<DarkModeToggle /> {/* Add the DarkModeToggle component here */}
+			<SlidingToggle />
 			<Footer />
 		</nav>
 	);

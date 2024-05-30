@@ -7,7 +7,8 @@ import { Variants } from "../utils/CustomProps";
 import Logo from "/logo/mjblogo.png";
 import Socials from "./Socials";
 import Footer from "./Footer";
-import DarkModeToggle from "./DarkModeToggle"; // Adjust the path as needed
+/* import DarkModeToggle from "./DarkModeToggle"; */
+import SlidingToggle from "./SlidingToggle";
 
 const menuVariants: Variants = {
 	hidden: {
@@ -64,7 +65,7 @@ const Header = () => {
 				<Link to={"/"} className="max-w-[60px]">
 					<img src={Logo} alt="Logo" />
 				</Link>
-				<DarkModeToggle />
+				<SlidingToggle />
 				<div onClick={() => setOpenMenu(true)}>
 					<CgMenuRight className="text-3xl cursor-pointer transition-transform transform-gpu hover:scale-110" />
 				</div>
@@ -92,7 +93,7 @@ const Header = () => {
 									className="group transition duration-300 relative"
 								>
 									{item.title}
-									<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
+									<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-primary-dark"></span>
 								</Link>
 							))}
 						</ul>

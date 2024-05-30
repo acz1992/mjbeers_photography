@@ -12,7 +12,7 @@ export default {
 		extend: {
 			colors: {
 				primary: {
-					DEFAULT: "black",
+					DEFAULT: "#313638",
 					dark: "white", // Define the primary color for dark mode
 				},
 				background: {
