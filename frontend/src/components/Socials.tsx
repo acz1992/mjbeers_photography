@@ -25,7 +25,7 @@ const Socials = () => {
 	console.log("Socials component is rendered"); // Logging component render
 
 	return (
-		<div className="laptop:flex border-t-2 border-black pt-4 ">
+		<div className="laptop:flex border-t-2 border-b-2 border-black dark:border-primary-dark py-4 ">
 			<ul className="flex w-full gap-8 justify-between ">
 				{socialLinks.map((link, index) => (
 					<li key={index}>

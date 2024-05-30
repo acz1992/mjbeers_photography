@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { CgMenuRight } from "react-icons/cg";
@@ -5,8 +6,14 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Variants } from "../utils/CustomProps";
 import Logo from "/logo/mjblogo.png";
+import DarkLogo from "/logo/darklogo-nobg.png";
 import Socials from "./Socials";
 import Footer from "./Footer";
+import SlidingToggle from "./SlidingToggle";
+import {
+	DarkModeContext,
+	DarkModeContextType,
+} from "../context/DarkModeContext"; // Import the DarkModeContextType
 
 const menuVariants: Variants = {
 	hidden: {
@@ -32,6 +39,7 @@ const menuItems = [
 const Header = () => {
 	const [openMenu, setOpenMenu] = useState(false);
 	const navigationRef = useRef<HTMLDivElement>(null);
+	const { isDarkMode } = useContext(DarkModeContext) as DarkModeContextType; // Provide TypeScript with the correct type information
 
 	const handleCloseMenu = () => {
 		setOpenMenu(false);
@@ -56,12 +64,12 @@ const Header = () => {
 
 	return (
 		<header
-			className="laptop:hidden fixed w-full top-0 z-50 shadow-md"
+			className="laptop:hidden fixed w-full top-0 z-50 shadow-md bg-background dark:bg-background-dark"
 			ref={navigationRef}
 		>
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
 				<Link to={"/"} className="max-w-[60px]">
-					<img src={Logo} alt="" />
+					<img src={isDarkMode ? DarkLogo : Logo} alt="Logo" />
 				</Link>
 				<div onClick={() => setOpenMenu(true)}>
 					<CgMenuRight className="text-3xl cursor-pointer transition-transform transform-gpu hover:scale-110" />
@@ -76,11 +84,11 @@ const Header = () => {
 				>
 					<div
 						onClick={handleCloseMenu}
-						className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer transition-transform transform-gpu hover:scale-110"
+						className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer transition-transform transform-gpu dark:text-primary-dark hover:scale-110"
 					>
 						<IoMdClose />
 					</div>
-					<div className="flex flex-col justify-center items-center h-full gap-24 tablet:gap-40">
+					<div className="flex flex-col justify-center items-center h-full gap-14 tablet:gap-36 bg-background dark:bg-background-dark">
 						<ul className="flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl">
 							{menuItems.map((item, index) => (
 								<Link
@@ -90,12 +98,15 @@ const Header = () => {
 									className="group transition duration-300 relative"
 								>
 									{item.title}
-									<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
+									<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-primary-dark"></span>
 								</Link>
 							))}
 						</ul>
+
 						<Socials />
+						<SlidingToggle />
 					</div>
+
 					<Footer />
 				</motion.div>
 			)}

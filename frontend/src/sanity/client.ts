@@ -15,19 +15,3 @@ export async function getPhotos() {
 	const photos = await client.fetch(query);
 	return photos;
 }
-
-// uses GROQ to query content: https://www.sanity.io/docs/groq
-/* export async function getPosts() {
-    const posts = await client.fetch('*[_type == "post"]')
-    return posts
-  }
-  
-  export async function createPost(post: Post) {
-    const result = client.create(post)
-    return result
-  }
-  
-  export async function updateDocumentTitle(_id, title) {
-    const result = client.patch(_id).set({title})
-    return result
-  } */
