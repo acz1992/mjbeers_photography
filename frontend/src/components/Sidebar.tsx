@@ -20,15 +20,17 @@ const links: Link[] = [
 
 const Sidebar = () => {
 	return (
-		<nav className="hidden laptop:fixed pl-10 h-screen laptop:flex flex-col items-center justify-center bg-background dark:bg-background-dark">
-			<div className="flex flex-col mb-6 gap-8">
+		<nav className="hidden laptop:fixed pl-10 h-screen laptop:flex flex-col items-center justify-center bg-background dark:bg-background-dark relative">
+			<div className="absolute top-8 left-8">
+				<SlidingToggle />
+			</div>
+			<div className="flex flex-col mb-6 gap-8 mt-16">
 				{/* Logo */}
-				<div className="">
-					<Link to={"/"}>
+				<div>
+					<Link to="/">
 						<img src={Logo} alt="Logo" className="h-40" />
 					</Link>
 				</div>
-
 				<div className="flex flex-col gap-5 font-size-[15px] mb-10 mr-9">
 					{links.map((link, index) => (
 						<Link
@@ -43,7 +45,6 @@ const Sidebar = () => {
 				</div>
 				<Socials />
 			</div>
-			<SlidingToggle />
 			<Footer />
 		</nav>
 	);

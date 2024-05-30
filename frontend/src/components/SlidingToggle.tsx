@@ -11,7 +11,7 @@ const SlidingToggle: React.FC = () => {
 			onClick={toggleDarkMode}
 		>
 			<FaMoon
-				className={`absolute right-1 text-yellow-500 transition-opacity ${
+				className={`absolute right-1 text-gray-600 transition-opacity ${
 					isDarkMode ? "opacity-0" : "opacity-100"
 				}`}
 			/>

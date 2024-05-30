@@ -65,7 +65,6 @@ const Header = () => {
 				<Link to={"/"} className="max-w-[60px]">
 					<img src={Logo} alt="Logo" />
 				</Link>
-				<SlidingToggle />
 				<div onClick={() => setOpenMenu(true)}>
 					<CgMenuRight className="text-3xl cursor-pointer transition-transform transform-gpu hover:scale-110" />
 				</div>
@@ -79,11 +78,11 @@ const Header = () => {
 				>
 					<div
 						onClick={handleCloseMenu}
-						className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer transition-transform transform-gpu hover:scale-110"
+						className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer transition-transform transform-gpu dark:text-primary-dark hover:scale-110"
 					>
 						<IoMdClose />
 					</div>
-					<div className="flex flex-col justify-center items-center h-full gap-24 tablet:gap-40 bg-background dark:bg-background-dark">
+					<div className="flex flex-col justify-center items-center h-full gap-14 tablet:gap-36 bg-background dark:bg-background-dark">
 						<ul className="flex flex-col justify-center items-center gap-y-8 font-secondary font-semibold text-3xl">
 							{menuItems.map((item, index) => (
 								<Link
@@ -97,8 +96,11 @@ const Header = () => {
 								</Link>
 							))}
 						</ul>
+
 						<Socials />
+						<SlidingToggle />
 					</div>
+
 					<Footer />
 				</motion.div>
 			)}
