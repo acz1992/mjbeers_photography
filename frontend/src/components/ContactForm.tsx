@@ -92,7 +92,7 @@ const ContactForm = () => {
 							name="name"
 							value={formData.name}
 							onChange={handleInputChange}
-							className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark"
+							className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark dark:placeholder-gray-500 dark:text-primary"
 							required
 							placeholder="Your name"
 						/>
@@ -104,7 +104,7 @@ const ContactForm = () => {
 							name="email"
 							value={formData.email}
 							onChange={handleInputChange}
-							className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark"
+							className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark dark:placeholder-gray-500 dark:text-primary"
 							required
 							placeholder="Your email address"
 						/>
@@ -117,7 +117,7 @@ const ContactForm = () => {
 						name="subject"
 						value={formData.subject}
 						onChange={handleInputChange}
-						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark"
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 bg-background dark:bg-primary-dark dark:placeholder-gray-500 dark:text-primary"
 						required
 						placeholder="Subject"
 					/>
@@ -129,7 +129,7 @@ const ContactForm = () => {
 						value={formData.message}
 						onChange={handleInputChange}
 						rows={4}
-						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 resize-none bg-background dark:bg-primary-dark"
+						className="w-full pl-2 pb-4 pt-2 border-b-2 border-primary transition-all duration-300 focus:outline-none focus:border-b-4 resize-none bg-background dark:bg-primary-dark dark:placeholder-gray-500 dark:text-primary"
 						required
 						placeholder="What Can I do for you?"
 					></textarea>
