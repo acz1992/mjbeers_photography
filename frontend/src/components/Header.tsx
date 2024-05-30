@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { CgMenuRight } from "react-icons/cg";
@@ -5,10 +6,14 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Variants } from "../utils/CustomProps";
 import Logo from "/logo/mjblogo.png";
+import DarkLogo from "/logo/darklogo-nobg.png";
 import Socials from "./Socials";
 import Footer from "./Footer";
-/* import DarkModeToggle from "./DarkModeToggle"; */
 import SlidingToggle from "./SlidingToggle";
+import {
+	DarkModeContext,
+	DarkModeContextType,
+} from "../context/DarkModeContext"; // Import the DarkModeContextType
 
 const menuVariants: Variants = {
 	hidden: {
@@ -34,6 +39,7 @@ const menuItems = [
 const Header = () => {
 	const [openMenu, setOpenMenu] = useState(false);
 	const navigationRef = useRef<HTMLDivElement>(null);
+	const { isDarkMode } = useContext(DarkModeContext) as DarkModeContextType; // Provide TypeScript with the correct type information
 
 	const handleCloseMenu = () => {
 		setOpenMenu(false);
@@ -63,7 +69,7 @@ const Header = () => {
 		>
 			<div className="flex items-center justify-between px-4 pt-1 pb-2">
 				<Link to={"/"} className="max-w-[60px]">
-					<img src={Logo} alt="Logo" />
+					<img src={isDarkMode ? DarkLogo : Logo} alt="Logo" />
 				</Link>
 				<div onClick={() => setOpenMenu(true)}>
 					<CgMenuRight className="text-3xl cursor-pointer transition-transform transform-gpu hover:scale-110" />

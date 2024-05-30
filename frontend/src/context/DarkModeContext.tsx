@@ -6,12 +6,12 @@ import React, {
 	ReactNode,
 } from "react";
 
-interface DarkModeContextType {
+export interface DarkModeContextType {
 	isDarkMode: boolean;
 	toggleDarkMode: () => void;
 }
 
-const DarkModeContext = createContext<DarkModeContextType | undefined>(
+export const DarkModeContext = createContext<DarkModeContextType | undefined>(
 	undefined
 );
 
