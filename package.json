@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^2.1.0"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.3.3"
   }
 }
