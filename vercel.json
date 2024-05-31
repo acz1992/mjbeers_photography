@@ -4,12 +4,25 @@
 		{
 			"src": "frontend",
 			"use": "@vercel/static-build",
-			"config": { "distDir": "dist" }
+			"config": { "distDir": "frontend/build" }
 		},
 		{
 			"src": "backend_sanity",
 			"use": "@vercel/node"
 		}
 	],
-	"rewrites": [{ "source": "/(.*)", "destination": "/frontend/index.html" }]
+	"routes": [
+		{
+			"src": "^/static/(.*)",
+			"dest": "/frontend/build/static/$1"
+		},
+		{
+			"src": "\\/[^\\/]*\\.(js|css|png|jpe?g|gif|svg|woff2?|ttf|eot)$",
+			"dest": "/frontend/build/$1"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/frontend/dist/index.html"
+		}
+	]
 }
