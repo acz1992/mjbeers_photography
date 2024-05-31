@@ -17,8 +17,17 @@
 			"dest": "/backend_sanity/$1"
 		},
 		{
+			"handle": "filesystem"
+		},
+		{
 			"src": "/(.*)",
 			"dest": "/frontend/$1"
+		}
+	],
+	"rewrites": [
+		{
+			"source": "/(.*)",
+			"destination": "/frontend/index.html"
 		}
 	]
 }
