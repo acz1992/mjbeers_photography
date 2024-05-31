@@ -13,12 +13,8 @@
 	],
 	"rewrites": [
 		{
-			"source": "/api/(.*)",
-			"destination": "/backend_sanity/$1"
-		},
-		{
 			"source": "/(.*)",
-			"destination": "/"
+			"destination": "/frontend/$1"
 		}
 	]
 }
