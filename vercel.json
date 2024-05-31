@@ -2,19 +2,14 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "frontend/package.json",
+			"src": "frontend",
 			"use": "@vercel/static-build",
-			"config": { "distDir": "build" }
+			"config": { "distDir": "dist" }
 		},
 		{
-			"src": "backend_sanity/package.json",
+			"src": "backend_sanity",
 			"use": "@vercel/node"
 		}
 	],
-	"rewrites": [
-		{
-			"source": "/frontend/(.*)",
-			"destination": "/frontend"
-		}
-	]
+	"rewrites": [{ "source": "/(.*)", "destination": "/frontend/index.html" }]
 }
