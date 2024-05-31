@@ -11,10 +11,10 @@
 			"use": "@vercel/node"
 		}
 	],
-	"rewrites": [
+	"routes": [
 		{
-			"source": "/(.*)",
-			"destination": "/frontend/dist/index.html"
+			"src": "/(.*)",
+			"dest": "/frontend/$1"
 		}
 	]
 }
