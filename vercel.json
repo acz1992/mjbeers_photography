@@ -2,15 +2,23 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "frontend",
+			"src": "frontend/package.json",
 			"use": "@vercel/static-build",
-			"config": { "distDir": "dist" }
+			"config": { "distDir": "build" }
 		},
 		{
-			"src": "backend_sanity",
+			"src": "backend_sanity/package.json",
 			"use": "@vercel/node"
 		}
 	],
-
-	"routes": [{ "src": "/[^.]+", "dest": "/frontend/$1", "status": 200 }]
+	"routes": [
+		{
+			"src": "/api/(.*)",
+			"dest": "/backend_sanity/$1"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/frontend/build/$1"
+		}
+	]
 }
