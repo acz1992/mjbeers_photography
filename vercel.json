@@ -11,5 +11,22 @@
 			"use": "@vercel/node"
 		}
 	],
-	"rewrites": [{ "source": "/(.*)", "destination": "/" }]
+	"routes": [
+		{
+			"src": "/api/(.*)",
+			"dest": "/backend_sanity/$1"
+		},
+		{
+			"src": "^/static/(.*)",
+			"dest": "/frontend/static/$1"
+		},
+		{
+			"src": "/(.*)\\.png",
+			"dest": "/frontend/$1.png"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/frontend/index.html"
+		}
+	]
 }
