@@ -24,10 +24,5 @@
 			"dest": "/frontend/$1"
 		}
 	],
-	"rewrites": [
-		{
-			"source": "/(.*)",
-			"destination": "/frontend/index.html"
-		}
-	]
+	"rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
