@@ -11,18 +11,14 @@
 			"use": "@vercel/node"
 		}
 	],
-	"rewrites": [
+	"routes": [
 		{
-			"source": "/api/(.*)",
-			"destination": "/backend_sanity/$1"
+			"src": "/api/(.*)",
+			"dest": "/backend_sanity/$1"
 		},
 		{
-			"source": "/frontend/(.*)",
-			"destination": "/frontend/$1"
-		},
-		{
-			"source": "/(.*)",
-			"destination": "/frontend/index.html"
+			"src": "/(.*)",
+			"dest": "/frontend/$1"
 		}
 	]
 }
