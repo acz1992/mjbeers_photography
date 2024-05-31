@@ -4,17 +4,12 @@
 		{
 			"src": "frontend",
 			"use": "@vercel/static-build",
-			"config": { "distDir": "frontend/build" }
+			"config": { "distDir": "dist" }
 		},
 		{
 			"src": "backend_sanity",
 			"use": "@vercel/node"
 		}
 	],
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "/frontend/$1"
-		}
-	]
+	"rewrites": [{ "source": "/(.*)", "destination": "/frontend/index.html" }]
 }
