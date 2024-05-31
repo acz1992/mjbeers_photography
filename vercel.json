@@ -12,5 +12,7 @@
 		}
 	],
 
-	"routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+	"routes": [
+		{ "src": "/[^.]+", "dest": "/frontend/index.html", "status": 200 }
+	]
 }
