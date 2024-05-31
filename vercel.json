@@ -13,10 +13,6 @@
 	],
 	"routes": [
 		{
-			"src": "/api/(.*)",
-			"dest": "/backend_sanity/$1"
-		},
-		{
 			"src": "/(.*)",
 			"dest": "/frontend/$1"
 		}
