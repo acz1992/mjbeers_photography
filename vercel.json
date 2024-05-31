@@ -11,10 +11,5 @@
 			"use": "@vercel/node"
 		}
 	],
-	"rewrites": [
-		{
-			"source": "/(.*)",
-			"destination": "/frontend/$1"
-		}
-	]
+	"rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
