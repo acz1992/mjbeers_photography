@@ -14,7 +14,7 @@
 	"routes": [
 		{
 			"src": "/admin/(.*)",
-			"dest": "/backend_sanity/$1"
+			"dest": "/frontend/admin/$1"
 		},
 		{
 			"src": "/(.*)",
