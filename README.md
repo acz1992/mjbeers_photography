@@ -8,7 +8,7 @@ Mitch is a skilled, self-taught photographer who, alongside his day job, extends
 
 ### The Mission
 
-The client needed a minimalist-style website where he could showcase his work and give an overview of his background and artistic journey - offering a brief yet engaging overview of his background and evolution as a photographer. Furthermore, potential customers needed a customers by which they could reach out and make inquiries.
+The client needed a minimalist-style website where he could upload his photos and showcase his work and give an overview of his background and artistic journey - offering a brief yet engaging overview of his background and evolution as a photographer. Furthermore, potential customers needed a means by which they could reach out and make inquiries.
 
 ## Tech / Resources
 
@@ -34,27 +34,5 @@ This company website project uses React, TypeScript, Sanity Io Headless CMS and 
 
 ### To do
 
--   **Multiple Categories**: Enable option of multiple categories, so some pictures can be simultaneously chosen for Home and for specific page
--   **Email.js**: Hook up form to email
 -   **Testimonials**: Add a review page using reviews from Facebook
--   **Add Dark Mode**: Add toggle component that switches Website to darker colours, for environemntal purposes.
 
-## Challenges
-
-### **Clipping Image-overflow on hover scale-effect**:
-
-Image tile dimensions vary, and so this could not be applied
-
-**Solution**:
-
--   getUniqueDimensions function asynchronously retrieves the unique dimensions (width and height) of each image using the Image constructor and onload event handler
--   The useEffect hook is used to call fetchDimensions function once after the component mounts, ensuring that the unique dimensions are fetched and set before rendering.
--   The component renders the images within a ResponsiveMasonry component, ensuring responsiveness, and calculates the aspect ratio of each image container based on its unique dimensions to maintain proper image rendering.
-
-### **Unequal spacing at the bottom of Photo Gallery**:
-
-The column format of the Photo Gallery and randomization of the photo array meant that sometimes, very unequal spacing was rendered at the bottom of the component
-
-**Solution**:
-
--   Apply the `vertical-align: bottom` CSS class to each image, in order to set the vertical alignment of each image, and produce more even distribution
