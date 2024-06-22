@@ -13,6 +13,10 @@
 	],
 	"routes": [
 		{
+			"src": "/admin/(.*)",
+			"dest": "/backend_sanity/admin/$1"
+		},
+		{
 			"src": "/(.*)",
 			"dest": "/frontend/$1"
 		}

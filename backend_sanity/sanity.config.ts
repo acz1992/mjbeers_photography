@@ -12,6 +12,8 @@ export default defineConfig({
   projectId: '1ypfs60t',
   dataset: 'production',
 
+  basePath: '/admin',
+
   plugins: [structureTool(/* {structure} */), visionTool(), vercelDeployTool()],
 
   schema: {
