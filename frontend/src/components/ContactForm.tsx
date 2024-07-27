@@ -33,6 +33,8 @@ const ContactForm = () => {
 		e.preventDefault();
 
 		if (form.current) {
+			console.log("Form Data: ", formData);
+
 			emailjs
 				.sendForm(
 					import.meta.env.VITE_SERVICE_ID!,
