@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
+import emailjs from "@emailjs/browser";
+
+// Initialize EmailJS with your public key
+emailjs.init("MLmJ_KfnS6j_jzXNt");
 
 interface FormData {
 	name: string;
@@ -37,14 +40,13 @@ const ContactForm = () => {
 
 			emailjs
 				.sendForm(
-					import.meta.env.VITE_SERVICE_ID!,
-					import.meta.env.VITE_TEMPLATE_ID!,
-					form.current,
-					import.meta.env.VITE_PUBLIC_KEY!
+					"service_g39n3nt", // Replace with your actual service ID
+					"template_1eirwhi", // Replace with your actual template ID
+					form.current
 				)
 				.then(
-					() => {
-						console.log("SUCCESS!");
+					(result) => {
+						console.log("SUCCESS!", result);
 						setEmailSubmitted(true);
 						setFormData({
 							name: "",
@@ -53,12 +55,12 @@ const ContactForm = () => {
 							message: "",
 						});
 					},
-					(error: EmailJSResponseStatus) => {
-						console.log("FAILED...", error);
+					(error) => {
+						console.error("FAILED...", error);
 					}
 				);
 		} else {
-			console.log("The form reference is null.");
+			console.error("The form reference is null.");
 		}
 	};
 
