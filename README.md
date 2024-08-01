@@ -1,8 +1,3 @@
-### Email JS problem
-
-1. Try and replace .env variables on form with actual code, and test on the dev server
-2. According to docs, public key not supposed to be passed, but used to initiate?
-
 # MJBeers Photography Portfolio
 
 ## About
