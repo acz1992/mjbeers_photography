@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 // Initialize EmailJS with your public key
-emailjs.init("MLmJ_KfnS6j_jzXNt");
+emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
 
 interface FormData {
 	name: string;
@@ -40,8 +40,8 @@ const ContactForm = () => {
 
 			emailjs
 				.sendForm(
-					"service_rjg789n", // Replace with your actual service ID
-					"template_1eirwhi", // Replace with your actual template ID
+					import.meta.env.VITE_SERVICE_ID,
+					import.meta.env.VITE_TEMPLATE_ID,
 					form.current
 				)
 				.then(
@@ -56,7 +56,7 @@ const ContactForm = () => {
 						});
 					},
 					(error) => {
-						console.error("FAILED...", error);
+						console.error(`Failed to send email: ${error.text}`);
 					}
 				);
 		} else {
