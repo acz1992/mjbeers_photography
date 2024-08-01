@@ -40,7 +40,7 @@ const ContactForm = () => {
 
 			emailjs
 				.sendForm(
-					"service_g39n3nt", // Replace with your actual service ID
+					"service_rjg789n", // Replace with your actual service ID
 					"template_1eirwhi", // Replace with your actual template ID
 					form.current
 				)
