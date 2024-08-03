@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
 		<div className="text-black dark:text-primary-dark w-full py-4 text-xs  font-thin flex justify-center absolute bottom-0">
 			Made by &nbsp;
 			<a
-				href="https://github.com/acz1992"
+				href="https://adammichajlowicz.vercel.app/"
 				className="hover:text-gray-400"
 			>
 				Adam Zdan-Michajlowicz
