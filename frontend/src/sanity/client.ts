@@ -9,25 +9,8 @@ export const client = createClient({
 });
 
 export async function getPhotos() {
-	// Construct your query based on the page number, if needed
 	const query =
 		'*[_type == "photo"]{_id, title, description, category, "imageAddress": image.asset->url}';
 	const photos = await client.fetch(query);
 	return photos;
 }
-
-// uses GROQ to query content: https://www.sanity.io/docs/groq
-/* export async function getPosts() {
-    const posts = await client.fetch('*[_type == "post"]')
-    return posts
-  }
-  
-  export async function createPost(post: Post) {
-    const result = client.create(post)
-    return result
-  }
-  
-  export async function updateDocumentTitle(_id, title) {
-    const result = client.patch(_id).set({title})
-    return result
-  } */
